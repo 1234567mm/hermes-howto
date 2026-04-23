@@ -2,7 +2,6 @@
 """Check cross-references in markdown files."""
 
 import sys
-import os
 import re
 from pathlib import Path
 
@@ -11,19 +10,19 @@ def check_file(path):
     """Check a single markdown file for cross-reference issues."""
     issues = []
 
-    with open(path, 'r', encoding='utf-8') as f:
+    with open(path, "r", encoding="utf-8") as f:
         content = f.read()
 
     # Check for broken internal links
-    links = re.findall(r'\[([^\]]+)\]\(([^)]+)\)', content)
+    links = re.findall(r"\[([^\]]+)\]\(([^)]+)\)", content)
     for text, link in links:
-        if link.startswith('#'):
+        if link.startswith("#"):
             continue
-        if link.startswith('http'):
+        if link.startswith("http"):
             continue
-        if link.startswith('mailto'):
+        if link.startswith("mailto"):
             continue
-        if link.endswith('.md'):
+        if link.endswith(".md"):
             link_path = Path(path).parent / link
             if not link_path.exists():
                 issues.append(f"Broken link in {path}: {link}")
@@ -33,11 +32,11 @@ def check_file(path):
 
 def main():
     """Main entry point."""
-    md_files = list(Path('.').rglob('*.md'))
+    md_files = list(Path(".").rglob("*.md"))
     all_issues = []
 
     for md_file in md_files:
-        if '.venv' in str(md_file):
+        if ".venv" in str(md_file):
             continue
         issues = check_file(md_file)
         all_issues.extend(issues)
@@ -51,5 +50,5 @@ def main():
     return 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sys.exit(main())

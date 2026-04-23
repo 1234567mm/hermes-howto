@@ -48,7 +48,7 @@ Skills are reusable, filesystem-based capabilities that extend Hermes Agent's fu
 
 ## Next Steps
 
-After completing this module, continue to [Subagents](../04-subagents/README.md) to learn about delegated AI agents.
+After completing this module, continue to [Delegation](../04-delegation/README.md) to learn about delegated AI agents.
 
 ## Bundled Skills
 
@@ -63,8 +63,7 @@ Hermes Agent ships with built-in skills:
 
 ## Additional Resources
 
-- [Official Skills Documentation](https://code.claude.com/docs/en/skills)
-- [Agent Skills Architecture Blog](https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-skills)
-- [Slash Commands Guide](../01-slash-commands/README.md) - User-initiated shortcuts
-- [Subagents Guide](../04-subagents/README.md) - Delegated AI agents
+- [Official Skills Documentation](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills)
+- [Agent Skills Architecture Blog](https://nousresearch.com/blog/agent-skills)
+- [Delegation Guide](../04-delegation/README.md) - Delegated AI agents
 - [Memory Guide](../02-memory/README.md) - Persistent context

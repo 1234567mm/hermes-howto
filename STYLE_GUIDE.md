@@ -341,7 +341,7 @@ Use relative paths for all internal links:
 From a lesson folder back to root or sibling:
 
 ```markdown
-[Back to main guide](../README.md)
+[Back to main guide](./README.md)
 [Related: Skills](../03-skills/)
 ```
 

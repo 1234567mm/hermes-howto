@@ -15,7 +15,7 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)](CHANGELOG.md)
 [![Hermes Agent](https://img.shields.io/badge/Hermes_Agent-Tương_thích-purple)](https://hermes-agent.dev)
 
-🌐 **Ngôn ngữ / Language / 语言 / Мова:** [English](../README.md) | [Tiếng Việt](README.md) | [中文](zh/README.md) | [Українська](../uk/README.md)
+🌐 **Ngôn ngữ / Language / 语言 / Мова:** [English](../README.md) | [Tiếng Việt](README.md) | [中文](../zh/README.md) | [Українська](../uk/README.md)
 
 # Làm Chủ Hermes Agent Trong Một Cuối Tuần
 

@@ -2,8 +2,6 @@
 """Build EPUB from markdown files."""
 
 import sys
-import os
-from pathlib import Path
 
 
 def main():
@@ -13,5 +11,5 @@ def main():
     return 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sys.exit(main())
