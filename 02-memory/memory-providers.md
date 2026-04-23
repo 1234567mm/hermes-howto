@@ -2,7 +2,7 @@
 
 ## Overview
 
-Memory providers define where memory is stored and how it is loaded. Claude Code uses a hierarchical system with multiple provider levels, each serving different scopes.
+Memory providers define where memory is stored and how it is loaded. Hermes Agent uses a hierarchical system with multiple provider levels, each serving different scopes.
 
 ## Memory Hierarchy
 
@@ -10,13 +10,13 @@ Memory files are loaded in precedence order (highest to lowest):
 
 ```mermaid
 graph TD
-    A["Managed Policy<br/>/Library/ClaudeCode/CLAUDE.md"] -->|highest| B["Managed Drop-ins<br/>managed-settings.d/"]
-    B --> C["Project Memory<br/>./CLAUDE.md"]
-    C --> D["Project Rules<br/>./.claude/rules/*.md"]
-    D --> E["User Memory<br/>~/.claude/CLAUDE.md"]
-    E --> F["User Rules<br/>~/.claude/rules/*.md"]
-    F --> G["Local Memory<br/>./CLAUDE.local.md"]
-    G --> H["Auto Memory<br/>~/.claude/projects/.../memory/"]
+    A["Managed Policy<br/>/Library/HermesAgent/HERMES.md"] -->|highest| B["Managed Drop-ins<br/>managed-settings.d/"]
+    B --> C["Project Memory<br/>./HERMES.md"]
+    C --> D["Project Rules<br/>./.hermes/rules/*.md"]
+    D --> E["User Memory<br/>~/.hermes/HERMES.md"]
+    E --> F["User Rules<br/>~/.hermes/rules/*.md"]
+    F --> G["Local Memory<br/>./HERMES.local.md"]
+    G --> H["Auto Memory<br/>~/.hermes/projects/.../memory/"]
     style A fill:#fce4ec
     style H fill:#fff3e0
 ```
@@ -27,9 +27,9 @@ graph TD
 
 | Platform | Location |
 |----------|----------|
-| macOS | `/Library/Application Support/ClaudeCode/CLAUDE.md` |
-| Linux/WSL | `/etc/claude-code/CLAUDE.md` |
-| Windows | `C:\Program Files\ClaudeCode\CLAUDE.md` |
+| macOS | `/Library/Application Support/HermesAgent/HERMES.md` |
+| Linux/WSL | `/etc/hermes-agent/HERMES.md` |
+| Windows | `C:\Program Files\HermesAgent\HERMES.md` |
 
 Purpose: Organization-wide policies and security standards.
 
@@ -43,62 +43,62 @@ Files are merged alphabetically. Enables modular policy management.
 
 | Location | Scope |
 |----------|-------|
-| `./CLAUDE.md` | Project root |
-| `./.claude/CLAUDE.md` | Alternative project location |
+| `./HERMES.md` | Project root |
+| `./.hermes/HERMES.md` | Alternative project location |
 
 Purpose: Team-shared context, committed to git.
 
 ### Project Rules
 
-Location: `./.claude/rules/*.md` (recursive subdirectories supported)
+Location: `./.hermes/rules/*.md` (recursive subdirectories supported)
 
 Purpose: Modular, topic-specific project instructions.
 
 ### User Memory
 
-Location: `~/.claude/CLAUDE.md`
+Location: `~/.hermes/HERMES.md`
 
 Purpose: Personal preferences across all projects.
 
 ### User Rules
 
-Location: `~/.claude/rules/*.md`
+Location: `~/.hermes/rules/*.md`
 
 Purpose: Personal rules for all projects.
 
 ### Local Project Memory
 
-Location: `./CLAUDE.local.md`
+Location: `./HERMES.local.md`
 
 Purpose: Personal project-specific preferences (git-ignored).
 
 ### Auto Memory (Lowest Priority)
 
-Location: `~/.claude/projects/<project>/memory/`
+Location: `~/.hermes/projects/<project>/memory/`
 
-Purpose: Claude's automatic notes and learnings during sessions.
+Purpose: Hermes's automatic notes and learnings during sessions.
 
 ## Settings File Hierarchy
 
-Memory-related settings (`autoMemoryDirectory`, `claudeMdExcludes`) follow this precedence:
+Memory-related settings (`autoMemoryDirectory`, `hermesMdExcludes`) follow this precedence:
 
 | Level | Location | Scope |
 |-------|----------|-------|
 | 1 (highest) | Managed policy | Organization |
 | 2 | `managed-settings.d/` | Modular policy |
-| 3 | `~/.claude/settings.json` | User |
-| 4 | `.claude/settings.json` | Project (git-tracked) |
-| 5 (lowest) | `.claude/settings.local.json` | Local overrides |
+| 3 | `~/.hermes/settings.json` | User |
+| 4 | `.hermes/settings.json` | Project (git-tracked) |
+| 5 (lowest) | `.hermes/settings.local.json` | Local overrides |
 
-## claudeMdExcludes
+## hermesMdExcludes
 
-Exclude irrelevant CLAUDE.md files in large monorepos:
+Exclude irrelevant HERMES.md files in large monorepos:
 
 ```json
 {
-  "claudeMdExcludes": [
-    "packages/legacy-app/CLAUDE.md",
-    "vendors/**/CLAUDE.md"
+  "hermesMdExcludes": [
+    "packages/legacy-app/HERMES.md",
+    "vendors/**/HERMES.md"
   ]
 }
 ```
@@ -119,13 +119,13 @@ Customize auto memory location:
 
 ### Startup Loading
 
-- All CLAUDE.md files loaded automatically at session start
+- All HERMES.md files loaded automatically at session start
 - Earlier in hierarchy = higher precedence
 - Auto memory loads first 200 lines / 25KB of MEMORY.md
 
 ### Context During Session
 
-- Subdirectory CLAUDE.md loaded when accessing those directories
+- Subdirectory HERMES.md loaded when accessing those directories
 - Topic-specific auto memory files loaded on demand
 
 ### Worktree Behavior

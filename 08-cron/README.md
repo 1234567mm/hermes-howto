@@ -105,6 +105,12 @@ graph LR
 | **Project jobs** | `.claude/cron/` | Current project |
 | **User jobs** | `~/.claude/cron/` | All projects |
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz cron` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [cron-quickstart.md](cron-quickstart.md) — Schedule your first task

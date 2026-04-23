@@ -43,39 +43,39 @@ class CommandHandler:
     def __init__(self, hermes_client):
         self.hermes = hermes_client
         self.commands = {}
-        
+
     def register(self, name, handler, aliases=None):
         self.commands[name] = {
             "handler": handler,
             "aliases": aliases or [],
             "name": name
         }
-    
+
     async def handle(self, message, context):
         # Parse command
         cmd = self.parse_command(message.text)
         if not cmd:
             return None
-            
+
         # Find handler
         handler = self.find_handler(cmd.name)
         if not handler:
             return await self.unknown_command(cmd)
-            
+
         # Execute with context
         return await handler["handler"](cmd, context)
-    
+
     def parse_command(self, text):
         # Handle platform variations
         # /command@botname or /command
         parts = text.strip().split()
         if not parts or not parts[0].startswith("/"):
             return None
-            
+
         raw_cmd = parts[0][1:]  # Remove /
         # Split on @ for @botname suffix
         cmd_parts = raw_cmd.split("@")
-        
+
         return Command(
             name=cmd_parts[0].lower(),
             args=parts[1:],
@@ -91,7 +91,7 @@ class CommandHandler:
 class TelegramAdapter:
     def normalize(self, update):
         message = update.message
-        
+
         return NormalizedMessage(
             platform="telegram",
             user_id=str(message.from_user.id),
@@ -102,15 +102,15 @@ class TelegramAdapter:
             reply_to=message.reply_to_message,
             timestamp=message.date
         )
-    
+
     def extract_command(self, text):
         if not text or not text.startswith("/"):
             return None
         return text.split()[0][1:].split("@")[0]
-    
+
     def extract_attachments(self, message):
         attachments = []
-        
+
         if message.photo:
             attachments.append({
                 "type": "photo",
@@ -129,7 +129,7 @@ class TelegramAdapter:
                 "id": message.voice.file_id,
                 "duration": message.voice.duration
             })
-            
+
         return attachments
 ```
 
@@ -140,7 +140,7 @@ class DiscordAdapter:
     def normalize(self, message):
         # Parse mentions
         content = self.parse_mentions(message.content)
-        
+
         return NormalizedMessage(
             platform="discord",
             user_id=str(message.author.id),
@@ -160,12 +160,12 @@ class DiscordAdapter:
             thread_id=str(message.thread.id) if message.thread else None,
             timestamp=message.created_at
         )
-    
+
     def parse_mentions(self, content):
         # Convert <@USER_ID> to @username
         # Convert <#CHANNEL_ID> to #channelname
         return content
-    
+
     def extract_command(self, content):
         # Check for slash command
         if content.startswith("/"):
@@ -192,13 +192,13 @@ class SlackAdapter:
             thread_ts=event.thread_ts,
             timestamp=event.event_ts
         )
-    
+
     def parse_text(self, text):
         # Convert <@USER_ID> to @username
         # Convert <#CHANNEL_ID> to #channelname
         # Convert <!command> to @command
         return text
-    
+
     def extract_command(self, event):
         # Check for slash command in payload
         if hasattr(event, 'command'):
@@ -219,30 +219,30 @@ class CommandRouter:
     def __init__(self):
         self.routes = {}
         self.default_handler = None
-        
+
     def register(self, command, handler, platforms=None):
         platforms = platforms or ["telegram", "discord", "slack"]
         for platform in platforms:
             if platform not in self.routes:
                 self.routes[platform] = {}
             self.routes[platform][command] = handler
-    
+
     def route(self, normalized_message):
         platform = normalized_message.platform
         command = normalized_message.command
-        
+
         if not command:
             return self.default_handler
-            
+
         platform_routes = self.routes.get(platform, {})
         handler = platform_routes.get(command)
-        
+
         if not handler:
             # Try global commands
             for p_routes in self.routes.values():
                 if command in p_routes:
                     return p_routes[command]
-                    
+
         return handler
 ```
 
@@ -253,7 +253,7 @@ class CommandRouter:
 ```python
 async def help_command(cmd, context):
     hermes = context.hermes
-    
+
     help_text = """
 *Available Commands*
 
@@ -266,7 +266,7 @@ async def help_command(cmd, context):
 
 _Just type your question directly for quick answers._
 """
-    
+
     return Response(
         text=help_text,
         format="markdown",
@@ -279,7 +279,7 @@ _Just type your question directly for quick answers._
 ```python
 async def status_command(cmd, context):
     status = await context.hermes.get_status()
-    
+
     status_text = f"""
 *Hermes Status*
 
@@ -289,7 +289,7 @@ async def status_command(cmd, context):
 **Uptime**: {status.uptime}
 **Platform**: {status.platform}
 """
-    
+
     return Response(
         text=status_text,
         format="markdown",
@@ -305,7 +305,7 @@ async def clear_command(cmd, context):
         user_id=context.user_id,
         chat_id=context.chat_id
     )
-    
+
     return Response(
         text="Conversation cleared.",
         reply=context.message
@@ -318,10 +318,10 @@ async def clear_command(cmd, context):
 class CommandMiddleware:
     def __init__(self):
         self.middlewares = []
-        
+
     def use(self, middleware):
         self.middlewares.append(middleware)
-        
+
     async def process(self, message, context, handler):
         for mw in self.middlewares:
             result = await mw.process(message, context)
@@ -334,23 +334,23 @@ class RateLimitMiddleware:
     def __init__(self, max_per_minute=20):
         self.max_per_minute = max_per_minute
         self.requests = {}
-        
+
     async def process(self, message, context):
         key = f"{context.platform}:{context.user_id}"
         now = time.time()
-        
+
         # Clean old requests
         self.requests[key] = [
             t for t in self.requests.get(key, [])
             if now - t < 60
         ]
-        
+
         if len(self.requests.get(key, [])) >= self.max_per_minute:
             return Response(
                 text="Rate limit exceeded. Please wait.",
                 reply=context.message
             )
-            
+
         self.requests.setdefault(key, []).append(now)
         return None  # Continue to handler
 
@@ -358,13 +358,13 @@ class RateLimitMiddleware:
 class PermissionMiddleware:
     def __init__(self, allowed_roles=None):
         self.allowed_roles = allowed_roles or []
-        
+
     async def process(self, message, context):
         user_roles = context.user_roles or []
-        
+
         if not self.allowed_roles:
             return None  # No restrictions
-            
+
         if not any(role in self.allowed_roles for role in user_roles):
             return Response(
                 text="You don't have permission for this command.",
@@ -393,13 +393,13 @@ command_handler.register("clear", clear_command)
 async def handle_message(message, platform_adapter):
     normalized = platform_adapter.normalize(message)
     context = await build_context(normalized, hermes_client)
-    
+
     response = await middleware.process(
         normalized,
         context,
         command_handler.handle
     )
-    
+
     if response:
         await platform_adapter.send_response(response, context)
 ```

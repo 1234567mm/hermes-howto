@@ -146,7 +146,7 @@ cp -r 03-skills/example-skill ~/.hermes/skills/
 cp 02-memory/project-HERMES.md /đường/dẫn/dự án/HERMES.md
 
 # 5. Cấu hình provider:
-cp 13-providers/provider-examples/standard-providers.yaml ~/.hermes/providers/
+cp 13-providers/provider-examples/standard-providers.md ~/.hermes/providers/
 ```
 
 Muốn cài đặt đầy đủ? Đây là **cài đặt thiết yếu trong 1 giờ**:

@@ -85,6 +85,12 @@ toolset-name/
 | **Project toolsets** | `.claude/toolsets/` | Current project |
 | **User toolsets** | `~/.claude/toolsets/` | All projects |
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz toolsets` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [toolset-format.md](toolset-format.md) — Configure your first toolset

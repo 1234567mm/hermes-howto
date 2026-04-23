@@ -67,33 +67,33 @@ graph TD
         DE[Discord Adapter]
         SE[Slack Adapter]
     end
-    
+
     subgraph "Normalization Layer"
         CN[Command Normalizer]
         RN[Response Formatter]
     end
-    
+
     subgraph "Core Patterns"
         CH[Command Handler]
         CF[Conversation Flows]
         EH[Error Handler]
     end
-    
+
     subgraph "Hermes"
         HC[Hermes Core]
     end
-    
+
     TE --> CN
     DE --> CN
     SE --> CN
-    
+
     CN --> CH
     CH --> HC
     HC --> RN
     RN --> TE
     RN --> DE
     RN --> SE
-    
+
     CH --> EH
     EH --> CF
 ```
@@ -126,13 +126,13 @@ handler.use(PermissionMiddleware())
 # Handle message
 async def handle(message, platform):
     normalized = platform.normalize(message)
-    
+
     # Route to conversation or command
     if normalized.command:
         response = await handler.handle(normalized)
     else:
         response = await flows.continue_conversation(normalized)
-    
+
     # Format and send
     formatted = formatter.format(response, platform)
     return await platform.send(formatted)

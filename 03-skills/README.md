@@ -1,11 +1,11 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/hermes-howto-logo-dark.svg">
+  <img alt="Hermes How To" src="../resources/logos/hermes-howto-logo.svg">
 </picture>
 
 # Skills System
 
-Skills are reusable, filesystem-based capabilities that extend Claude's functionality. They package domain-specific expertise, workflows, and best practices into discoverable components that Claude automatically uses when relevant.
+Skills are reusable, filesystem-based capabilities that extend Hermes Agent's functionality. They package domain-specific expertise, workflows, and best practices into discoverable components that Hermes Agent automatically uses when relevant.
 
 ## Overview
 
@@ -13,7 +13,7 @@ Skills are reusable, filesystem-based capabilities that extend Claude's function
 
 ### Key Benefits
 
-- **Specialize Claude**: Tailor capabilities for domain-specific tasks
+- **Specialize Hermes Agent**: Tailor capabilities for domain-specific tasks
 - **Reduce repetition**: Create once, use automatically across conversations
 - **Compose capabilities**: Combine Skills to build complex workflows
 - **Scale workflows**: Reuse skills across multiple projects and teams
@@ -31,8 +31,8 @@ Skills are reusable, filesystem-based capabilities that extend Claude's function
 
 || Type | Location | Scope | Best For |
 ||------|----------|-------|----------|
-| **Personal** | `~/.claude/skills/<skill-name>/SKILL.md` | Individual | Personal workflows |
-| **Project** | `.claude/skills/<skill-name>/SKILL.md` | Team | Team standards |
+| **Personal** | `~/.hermes/skills/<skill-name>/SKILL.md` | Individual | Personal workflows |
+| **Project** | `.hermes/skills/<skill-name>/SKILL.md` | Team | Team standards |
 | **Plugin** | `<plugin>/skills/<skill-name>/SKILL.md` | Where enabled | Bundled features |
 
 ## Skills vs Other Features
@@ -52,7 +52,7 @@ After completing this module, continue to [Subagents](../04-subagents/README.md)
 
 ## Bundled Skills
 
-Claude Code ships with built-in skills:
+Hermes Agent ships with built-in skills:
 
 || Skill | Description |
 ||-------|-------------|

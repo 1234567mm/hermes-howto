@@ -79,6 +79,12 @@ A checkpoint captures:
 | **Project checkpoints** | `.claude/checkpoints/` | Current project |
 | **User checkpoints** | `~/.claude/checkpoints/` | All projects |
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz checkpoints` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [checkpoint-usage.md](checkpoint-usage.md) — Working with checkpoints

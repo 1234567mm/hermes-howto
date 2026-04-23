@@ -99,6 +99,12 @@ A standard AI responds the same way to everyone. SOUL-powered Hermes:
 
 Project SOUL overrides User SOUL for that project.
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz soul` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [soul-md.md](soul-md.md) — SOUL.md format specification

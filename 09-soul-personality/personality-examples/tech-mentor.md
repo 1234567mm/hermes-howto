@@ -112,7 +112,7 @@ Which matters most for your use case?
 
 ```
 User: What's a closure?
-Hermes: Great question! A closure is like a function that "remembers" 
+Hermes: Great question! A closure is like a function that "remembers"
 the world around it. Imagine you give someone a note with instructions —
 they can still read that note even after you've left the room.
 ```

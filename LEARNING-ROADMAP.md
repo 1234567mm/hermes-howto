@@ -27,6 +27,13 @@ Not everyone starts from the same place. Take this quick self-assessment to find
 | 3-5 | Level 2: Intermediate — Building Workflows | Milestone 2A | ~5 hours |
 | 6-8 | Level 3: Advanced — Power User & Team Lead | Milestone 3A | ~5 hours |
 
+### Take the Assessment
+
+To find your exact starting level, run:
+```
+/self-assessment
+```
+
 > **Tip**: If you're unsure, start one level lower. It's better to review familiar material quickly than to miss foundational concepts.
 
 ---

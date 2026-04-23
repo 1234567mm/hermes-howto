@@ -87,6 +87,12 @@ my-plugin/
 | **Project plugins** | `.claude/plugins/` | Current project |
 | **User plugins** | `~/.claude/plugins/` | All projects |
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz plugins` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [plugin-format.md](plugin-format.md) — Create your first plugin

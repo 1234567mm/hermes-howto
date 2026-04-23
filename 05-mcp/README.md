@@ -91,6 +91,12 @@ Only allow read-only filesystem tools from the filesystem server
 | **Project servers** | `.claude/mcp_servers/` | Current project |
 | **User servers** | `~/.claude/mcp_servers/` | All projects |
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz mcp` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [mcp-quickstart.md](mcp-quickstart.md) — Setup your first MCP server

@@ -252,26 +252,26 @@ messaging:
   telegram:
     enabled: true
     bot_token: "${TELEGRAM_BOT_TOKEN}"
-    
+
     # Webhook configuration
     webhook:
       enabled: true
       url: "https://your-domain.com/telegram"
       secret_token: "${TELEGRAM_SECRET}"
-    
+
     # Message handling
     parse_mode: "Markdown"
     disable_web_page_preview: false
-    
+
     # Features
     reply_to_message: true
     allow_mentions: true
-    
+
     # Privacy and groups
     group_mode:
       enabled: false
       prefix_required: true
-    
+
     # Voice processing
     voice:
       enabled: true

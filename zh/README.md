@@ -146,7 +146,7 @@ cp -r 03-skills/example-skill ~/.hermes/skills/
 cp 02-memory/project-HERMES.md /你的项目路径/HERMES.md
 
 # 5. 配置 provider：
-cp 13-providers/provider-examples/standard-providers.yaml ~/.hermes/providers/
+cp 13-providers/provider-examples/standard-providers.md ~/.hermes/providers/
 ```
 
 想要完整设置？这是**1小时 essential 设置**：

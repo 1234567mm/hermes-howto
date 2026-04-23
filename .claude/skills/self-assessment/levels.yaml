@@ -1,0 +1,11 @@
+beginner:
+  score_range: 0-2
+  recommended_modules: 01-05
+
+intermediate:
+  score_range: 3-5
+  recommended_modules: 06-10
+
+advanced:
+  score_range: 6-8
+  recommended_modules: 11-14

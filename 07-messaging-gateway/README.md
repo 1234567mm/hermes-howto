@@ -104,6 +104,12 @@ sequenceDiagram
 - **Input Validation**: Sanitize all incoming messages
 - **Scope Principle**: Grant minimum required permissions
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz messaging-gateway` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [telegram-setup.md](telegram-setup.md) — Start with Telegram (easiest setup)

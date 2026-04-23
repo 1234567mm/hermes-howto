@@ -1,11 +1,11 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/hermes-howto-logo-dark.svg">
+  <img alt="Hermes How To" src="../resources/logos/hermes-howto-logo.svg">
 </picture>
 
 # Installation
 
-Install Claude Code on your system in under 5 minutes.
+Install Hermes Agent on your system in under 5 minutes.
 
 ## Supported Platforms
 
@@ -22,15 +22,15 @@ Install Claude Code on your system in under 5 minutes.
 
 **Option 1: Download from website**
 
-1. Visit [code.claude.com](https://code.claude.com)
+1. Visit [hermes-agent.dev](https://hermes-agent.dev)
 2. Click "Download for macOS"
 3. Open the downloaded `.dmg` file
-4. Drag Claude Code to your Applications folder
+4. Drag Hermes Agent to your Applications folder
 
 **Option 2: Homebrew**
 
 ```bash
-brew install --cask claude
+brew install --cask hermes
 ```
 
 ### Linux
@@ -38,57 +38,57 @@ brew install --cask claude
 **Option 1: Install script**
 
 ```bash
-curl -sSL https://storage.googleapis.com/claude-code/claude.sh | sh
+curl -sSL https://storage.googleapis.com/hermes-agent/hermes.sh | sh
 ```
 
 **Option 2: Manual install**
 
 ```bash
 # Download the binary
-curl -O https://storage.googleapis.com/claude-code/claude-linux-x86_64
+curl -O https://storage.googleapis.com/hermes-agent/hermes-linux-x86_64
 
 # Make it executable
-chmod +x claude-linux-x86_64
+chmod +x hermes-linux-x86_64
 
 # Move to your PATH
-sudo mv claude-linux-x86_64 /usr/local/bin/claude
+sudo mv hermes-linux-x86_64 /usr/local/bin/hermes
 ```
 
 ### Windows (WSL)
 
-If using WSL (Windows Subsystem for Linux), install Claude Code within your Linux environment using the Linux installation steps above.
+If using WSL (Windows Subsystem for Linux), install Hermes Agent within your Linux environment using the Linux installation steps above.
 
 > **Note**: Make sure you're running the install command inside WSL, not in PowerShell or CMD.
 
 ## Verification
 
-After installation, verify Claude Code is working:
+After installation, verify Hermes Agent is working:
 
 ```bash
-claude --version
+hermes --version
 ```
 
 You should see output like:
 
 ```
-Claude Code v2.1.112
+Hermes Agent v1.0.0
 ```
 
 ## First Launch
 
 On first launch, you'll be prompted to:
 
-1. **Sign in** - Authenticate with your Anthropic account
+1. **Sign in** - Authenticate with your Nous Research account or API key
 2. **Choose settings** - Select defaults for your workflow
 3. **Grant permissions** - Allow file system and git access
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant CLI as Claude Code CLI
-    participant Auth as Anthropic Auth
+    participant CLI as Hermes CLI
+    participant Auth as Nous Auth
 
-    User->>CLI: claude
+    User->>CLI: hermes
     CLI->>Auth: Sign in
     Auth-->>User: Login page
     User->>Auth: Enter credentials
@@ -98,7 +98,7 @@ sequenceDiagram
 
 ## Authentication
 
-Claude Code requires an Anthropic account. Free accounts get limited usage; Pro/Max plans offer higher limits.
+Hermes Agent supports multiple AI providers. Free accounts get limited usage; Pro plans offer higher limits.
 
 | Plan | Monthly Usage | Features |
 |------|---------------|----------|
@@ -109,7 +109,7 @@ Claude Code requires an Anthropic account. Free accounts get limited usage; Pro/
 ### CLI Login
 
 ```bash
-claude login
+hermes login
 ```
 
 This opens a browser window for OAuth authentication.
@@ -118,7 +118,7 @@ This opens a browser window for OAuth authentication.
 
 ### "Command not found"
 
-If `claude` is not found after installation:
+If `hermes` is not found after installation:
 
 ```bash
 # Add to your PATH (for manual installs)
@@ -132,7 +132,7 @@ hash -r
 
 ```bash
 # Make sure the binary is executable
-chmod +x /usr/local/bin/claude
+chmod +x /usr/local/bin/hermes
 ```
 
 ### Network issues
@@ -140,13 +140,13 @@ chmod +x /usr/local/bin/claude
 If you have connectivity problems:
 
 1. Check your internet connection
-2. Ensure firewall allows connections to `*.anthropic.com`
-3. Try `claude login` again
+2. Ensure firewall allows connections to `*.nousresearch.com`
+3. Try `hermes login` again
 
 ### Run diagnostics
 
 ```bash
-claude /doctor
+hermes doctor
 ```
 
 This command checks your installation health and suggests fixes.
@@ -158,4 +158,4 @@ Once installed, proceed to [First Conversation](first-conversation.md) to run yo
 ## See Also
 
 - [Configuration](configuration.md) - Customize your setup
-- [Slash Commands](../02-slash-commands/README.md) - Learn built-in shortcuts
+- [Memory](../02-memory/README.md) - Persistent context

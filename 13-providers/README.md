@@ -79,6 +79,12 @@ graph TB
 | **Project providers** | `.claude/providers/` | Current project |
 | **User providers** | `~/.claude/providers/` | All projects |
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz providers` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [provider-config.md](provider-config.md) — Configure providers

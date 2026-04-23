@@ -19,10 +19,10 @@ Voice Mode requires proper audio configuration for both input (microphone) and o
    ```bash
    # Linux (ALSA)
    arecord -l
-   
+
    # macOS
    system_profiler SPAudioDataType
-   
+
    # List available in PulseAudio
    pactl list sources short
    ```
@@ -37,7 +37,7 @@ Voice Mode requires proper audio configuration for both input (microphone) and o
    ```bash
    # Record a short clip
    arecord -d 5 -f cd test.wav
-   
+
    # Play back to verify
    aplay test.wav
    ```
@@ -48,7 +48,7 @@ Voice Mode requires proper audio configuration for both input (microphone) and o
    ```bash
    # Linux (PulseAudio)
    pactl list sinks short
-   
+
    # ALSA
    aplay -l
    ```
@@ -139,7 +139,7 @@ pulseaudio --start
    ```bash
    # PulseAudio
    pavucontrol
-   
+
    # ALSA
    amixer sset Mic unmute
    ```

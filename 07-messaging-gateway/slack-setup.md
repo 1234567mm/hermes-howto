@@ -364,17 +364,17 @@ messaging:
     client_secret: "${SLACK_CLIENT_SECRET}"
     signing_secret: "${SLACK_SIGNING_SECRET}"
     bot_token: "${SLACK_BOT_TOKEN}"
-    
+
     # Event handling
     events:
       url: "/slack/events"
       request_url: "https://your-domain.com/slack/events"
-      
+
     # Interactive components
     interactive:
       enabled: true
       url: "/slack/interactive"
-      
+
     # Features
     threads:
       enabled: true
@@ -382,17 +382,17 @@ messaging:
     dm:
       enabled: true
       greeting: "Hello! How can I help?"
-      
+
     # Channel configuration
     channels:
       allowed: []
       denied: []
       require_mention: true
-      
+
     # Block Kit
     blocks:
       enabled: true
-      
+
     # Shortcuts
     shortcuts:
       enabled: true

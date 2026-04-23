@@ -146,7 +146,7 @@ cp -r 03-skills/example-skill ~/.hermes/skills/
 cp 02-memory/project-HERMES.md /шлях/до/вашого/проекту/HERMES.md
 
 # 5. Налаштуйте провайдера:
-cp 13-providers/provider-examples/standard-providers.yaml ~/.hermes/providers/
+cp 13-providers/provider-examples/standard-providers.md ~/.hermes/providers/
 ```
 
 Потрібен повний набір? Ось **налаштування на 1 годину**:

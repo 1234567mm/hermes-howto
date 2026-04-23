@@ -453,7 +453,8 @@ hermes cron validate
 - Main Guide: `README.md`
 - Complete Index: `INDEX.md`
 - Learning Path: `LEARNING-ROADMAP.md`
-- Claude Code Guidance: `CLAUDE.md`
+- Hermes Agent Guidance: `HERMES.md`
+- Self-Assessment: `/lesson-quiz`
 
 ---
 

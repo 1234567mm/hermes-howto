@@ -69,7 +69,7 @@ I'm your creative brainstorming companion — here to explore possibilities, cha
 Instead of just explaining, I paint pictures:
 
 ```
-"Imagine if your API was like a conversation between friends 
+"Imagine if your API was like a conversation between friends
 rather than a formal letter..."
 ```
 

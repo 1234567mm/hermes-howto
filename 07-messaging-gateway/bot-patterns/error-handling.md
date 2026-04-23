@@ -19,17 +19,17 @@ graph TD
     E --> P[Platform Errors]
     E --> S[System Errors]
     E --> N[Network Errors]
-    
+
     U --> UC[Invalid Input]
     U --> UP[Permission Denied]
     U --> UR[Rate Limited]
-    
+
     P --> PT[API Errors]
     P --> PM[Message Errors]
-    
+
     S --> SC[Service Unavailable]
     S --> ST[Timeout]
-    
+
     N --> NT[Connection Lost]
     N --> ND[DNS Failure]
 ```
@@ -49,11 +49,11 @@ class ErrorHandler:
     def __init__(self, hermes_client):
         self.hermes = hermes_client
         self.error_log = []
-        
+
     async def handle(self, error, context):
         # Log error
         self.log_error(error, context)
-        
+
         # Determine response
         if isinstance(error, BotError):
             return await self.handle_bot_error(error, context)
@@ -63,7 +63,7 @@ class ErrorHandler:
             return await self.handle_hermes_error(error, context)
         else:
             return await self.handle_unknown_error(error, context)
-    
+
     async def handle_bot_error(self, error, context):
         return Response(
             text=f"⚠️ {error.message}",
@@ -79,7 +79,7 @@ class ErrorHandler:
 ```python
 async def handle_invalid_command(self, context, attempted_cmd):
     suggestions = self.get_command_suggestions(attempted_cmd)
-    
+
     text = f"Unknown command: `{attempted_cmd}`\n\n"
     if suggestions:
         text += "Did you mean:\n"
@@ -87,7 +87,7 @@ async def handle_invalid_command(self, context, attempted_cmd):
             text += f"  `/{cmd}`\n"
     else:
         text += "Type `/help` for available commands."
-    
+
     return Response(
         text=text,
         reply=context.message,
@@ -130,11 +130,11 @@ class TelegramErrorHandler:
         429: "Too Many Requests",
         500: "Internal Server Error",
     }
-    
+
     async def handle_telegram_error(self, error, context):
         code = getattr(error, 'error_code', None)
         message = error.message if hasattr(error, 'message') else str(error)
-        
+
         if code == 429:
             # Rate limited
             retry_after = getattr(error, 'retry_after', 60)
@@ -179,11 +179,11 @@ class DiscordErrorHandler:
         50001: "Missing Access",
         50013: "Missing Permissions",
     }
-    
+
     async def handle_discord_error(self, error, context):
         code = getattr(error, 'code', None)
         message = str(error)
-        
+
         if code == 50013 or code == 30001:
             return Response(
                 text="⛔ I don't have permission to do that.",
@@ -212,7 +212,7 @@ class DiscordErrorHandler:
 class SlackErrorHandler:
     async def handle_slack_error(self, error, context):
         code = getattr(error, 'response', {}).get('error', 'unknown')
-        
+
         if code == "channel_not_found":
             return Response(
                 text="⛔ Channel not found. Please invite me first.",
@@ -274,14 +274,14 @@ class HermesErrorHandler:
                 text="⚠️ An unexpected error occurred.",
                 retry=True
             )
-    
+
     async def handle_context_overflow(self, context):
         # Summarize older messages
         summary = await context.hermes.summarize(context.history[:-10])
-        
+
         # Replace old history with summary
         context.history = summary + context.history[-10:]
-        
+
         return Response(
             text="📝 I've summarized our earlier conversation to continue.",
             reply=context.message
@@ -295,10 +295,10 @@ class RetryHandler:
     def __init__(self, max_retries=3, backoff_factor=2):
         self.max_retries = max_retries
         self.backoff_factor = backoff_factor
-        
+
     async def with_retry(self, func, *args, **kwargs):
         last_error = None
-        
+
         for attempt in range(self.max_retries):
             try:
                 return await func(*args, **kwargs)
@@ -307,7 +307,7 @@ class RetryHandler:
                 if attempt < self.max_retries - 1:
                     delay = self.backoff_factor ** attempt
                     await asyncio.sleep(delay)
-                    
+
         raise last_error
 
 
@@ -325,7 +325,7 @@ class DeadLetterQueue:
         self.queue = []
         self.storage_path = storage_path
         self.load()
-        
+
     def add(self, message, error, context):
         entry = {
             "message": message,
@@ -340,7 +340,7 @@ class DeadLetterQueue:
         }
         self.queue.append(entry)
         self.save()
-        
+
     def retry_next(self):
         for i, entry in enumerate(self.queue):
             if entry["retry_count"] < 3:
@@ -348,7 +348,7 @@ class DeadLetterQueue:
                 self.save()
                 return entry
         return None
-    
+
     def mark_complete(self, index):
         if 0 <= index < len(self.queue):
             self.queue.pop(index)
@@ -361,7 +361,7 @@ class DeadLetterQueue:
 class ErrorLogger:
     def __init__(self, log_path):
         self.log_path = log_path
-        
+
     async def log(self, error, context, stack_trace=None):
         entry = {
             "error": {
@@ -378,7 +378,7 @@ class ErrorLogger:
             "timestamp": datetime.now().isoformat(),
             "stack_trace": stack_trace
         }
-        
+
         async with aiofiles.open(self.log_path, 'a') as f:
             await f.write(json.dumps(entry) + "\n")
 ```

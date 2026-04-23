@@ -40,7 +40,7 @@ class ConversationManager:
     def __init__(self, ttl_minutes=30):
         self.conversations = {}  # chat_id -> Conversation
         self.ttl = timedelta(minutes=ttl_minutes)
-        
+
     async def get_or_create(self, chat_id, platform):
         if chat_id not in self.conversations:
             self.conversations[chat_id] = Conversation(
@@ -53,18 +53,18 @@ class ConversationManager:
                 updated_at=datetime.now()
             )
         return self.conversations[chat_id]
-    
+
     async def update(self, chat_id, **kwargs):
         conv = await self.get_or_create(chat_id, None)
         for key, value in kwargs.items():
             setattr(conv, key, value)
         conv.updated_at = datetime.now()
-        
+
         # Check for timeout
         if conv.state == ConversationState.WAITING:
             if datetime.now() - conv.updated_at > self.ttl:
                 conv.state = ConversationState.TIMEOUT
-                
+
         return conv
 ```
 
@@ -76,7 +76,7 @@ class ConversationManager:
 class TelegramThreading:
     # Telegram uses reply chains, not true threads
     # Maintain context by tracking reply_to_message_id
-    
+
     async def send_in_thread(self, chat_id, message_id, text):
         return await telegram.send_message(
             chat_id=chat_id,
@@ -94,7 +94,7 @@ class DiscordThreading:
             name=f"{name_prefix}{message.id}"
         )
         return thread
-        
+
     async def reply_in_thread(self, thread_id, text):
         return await discord.send_message(
             channel_id=thread_id,
@@ -130,7 +130,7 @@ class ConversationContext:
     metadata: Dict[str, Any] = field(default_factory=dict)
 
 
-@dataclass  
+@dataclass
 class Turn:
     role: str  # "user" or "assistant"
     content: str
@@ -150,17 +150,17 @@ class IntentDetector:
             "confirmation": self.detect_confirmation,
             "cancellation": self.detect_cancellation,
         }
-        
+
     def detect(self, text, context):
         for intent_name, detector in self.intents.items():
             if detector(text, context):
                 return intent_name
         return "unknown"
-    
+
     def detect_greeting(self, text, context):
         greetings = ["hi", "hello", "hey", "good morning", "good evening"]
         return text.lower().strip() in greetings
-        
+
     def detect_question(self, text, context):
         # Check for question mark or question words
         question_patterns = [
@@ -169,17 +169,17 @@ class IntentDetector:
             r"can you|^could you|^would you"
         ]
         return any(
-            re.search(p, text.lower()) 
+            re.search(p, text.lower())
             for p in question_patterns
         )
-        
+
     def detect_command(self, text, context):
         return text.startswith("/") or text.startswith("!")
-        
+
     def detect_confirmation(self, text, context):
         confirmations = ["yes", "yep", "sure", "ok", "okay", "confirm"]
         return text.lower().strip() in confirmations
-        
+
     def detect_cancellation(self, text, context):
         cancellations = ["no", "cancel", "never mind", "stop", "quit"]
         return text.lower().strip() in cancellations
@@ -195,9 +195,9 @@ class QuestionFlow:
         context.state = ConversationState.WAITING
         context.intent = "answer_question"
         context.entities["pending_question"] = question
-        
+
         response = await context.hermes.ask(question)
-        
+
         return Response(
             text=response.text,
             reply=context.message,
@@ -215,20 +215,20 @@ class TaskFlow:
         {"name": "execute", "prompt": "Creating task..."},
         {"name": "complete", "prompt": "Task created!"},
     ]
-    
+
     async def start(self, context):
         context.state = ConversationState.ACTIVE
         context.intent = "create_task"
         context.entities["task_flow_step"] = 0
-        
+
         return Response(
             text=self.STEPS[0]["prompt"],
             reply=context.message
         )
-    
+
     async def advance(self, context, user_input):
         step = context.entities.get("task_flow_step", 0)
-        
+
         if step == 0:  # Collect task name
             context.entities["task"] = user_input
             context.entities["task_flow_step"] = 1
@@ -236,7 +236,7 @@ class TaskFlow:
                 text=f"Create task '{user_input}'? (yes/no)",
                 reply=context.message
             )
-            
+
         elif step == 1:  # Confirm
             if user_input.lower() in ["yes", "y"]:
                 context.entities["task_flow_step"] = 2
@@ -265,7 +265,7 @@ class SurveyFlow:
             "current_index": 0,
             "answers": {}
         }
-        
+
         return Response(
             text=f"Starting survey: {questions[0]}",
             reply=context.message,
@@ -273,14 +273,14 @@ class SurveyFlow:
                 {"text": "Cancel", "action": "survey_cancel"}
             ]
         )
-    
+
     async def process_answer(self, context, answer):
         survey = context.entities["survey"]
         q_index = survey["current_index"]
-        
+
         # Save answer
         survey["answers"][survey["questions"][q_index]] = answer
-        
+
         # Move to next question or complete
         q_index += 1
         if q_index >= len(survey["questions"]):
@@ -322,7 +322,7 @@ class TimeoutHandler:
 class HistoryManager:
     def __init__(self, max_turns=50):
         self.max_turns = max_turns
-        
+
     async def add_turn(self, context, role, content, message_id):
         context.history.append(Turn(
             role=role,
@@ -330,14 +330,14 @@ class HistoryManager:
             timestamp=datetime.now(),
             message_id=message_id
         ))
-        
+
         # Trim if too long
         if len(context.history) > self.max_turns:
             context.history = context.history[-self.max_turns:]
-    
+
     async def get_recent(self, context, num_turns=10):
         return context.history[-num_turns:]
-    
+
     async def format_for_hermes(self, context):
         # Format conversation history for Hermes
         messages = []
@@ -361,14 +361,14 @@ class ContextBuilder:
             thread_id=thread_id,
             state=ConversationState.IDLE
         )
-    
+
     def inject_system_prompt(self, context):
         platform_specific = {
             "telegram": "You are in a Telegram chat.",
             "discord": "You are in a Discord server.",
             "slack": "You are in a Slack workspace."
         }
-        
+
         return f"""
 {platform_specific.get(context.platform, "You are in a messaging app.")}
 

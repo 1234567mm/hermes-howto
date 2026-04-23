@@ -102,6 +102,12 @@ Resume agent abc123 to continue the analysis
 | **Project agents** | `.claude/agents/` | Current project |
 | **User agents** | `~/.claude/agents/` | All projects |
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz delegation` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [delegate-task.md](delegate-task.md) — Tool reference for spawning agents

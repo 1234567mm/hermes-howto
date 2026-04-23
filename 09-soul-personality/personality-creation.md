@@ -211,7 +211,7 @@ Hermes: Hey! Happy to help. What language/framework?
 
 ```
 User: Why did my deploy fail?
-Hermes: Deploy failed with exit code 137 (OOM killed). This usually 
+Hermes: Deploy failed with exit code 137 (OOM killed). This usually
 means the container exceeded memory limits. Let me check your config...
 ```
 

@@ -2,11 +2,11 @@
 
 ## Overview
 
-Two main commands manage memory in Claude Code: `/init` for creating new CLAUDE.md files, and `/memory` for editing existing ones.
+Two main commands manage memory in Hermes Agent: `/init` for creating new HERMES.md files, and `/memory` for editing existing ones.
 
 ## /init Command
 
-Initialize a new CLAUDE.md file with a starter template.
+Initialize a new HERMES.md file with a starter template.
 
 ### Usage
 
@@ -19,20 +19,20 @@ Initialize a new CLAUDE.md file with a starter template.
 Set `CLAUDE_CODE_NEW_INIT=1` for interactive setup:
 
 ```bash
-CLAUDE_CODE_NEW_INIT=1 claude
+CLAUDE_CODE_NEW_INIT=1 hermes
 /init
 ```
 
 ### What It Does
 
-1. Creates `./CLAUDE.md` or `./.claude/CLAUDE.md`
+1. Creates `./HERMES.md` or `./.hermes/HERMES.md`
 2. Populates with project template sections
 3. Establishes foundation for context persistence
 
 ### When to Use
 
 - Starting a new project
-- First-time CLAUDE.md setup
+- First-time HERMES.md setup
 - Establishing team standards
 - Setting up memory hierarchy
 
@@ -73,8 +73,8 @@ Edit existing memory files in your system editor.
 
 ```
 1. Managed Policy Memory
-2. Project Memory (./CLAUDE.md)
-3. User Memory (~/.claude/CLAUDE.md)
+2. Project Memory (./HERMES.md)
+3. User Memory (~/.hermes/HERMES.md)
 4. Local Project Memory
 ```
 
@@ -89,7 +89,7 @@ Edit existing memory files in your system editor.
 
 | Aspect | /init | /memory |
 |--------|-------|---------|
-| Purpose | Create new CLAUDE.md | Edit existing memory |
+| Purpose | Create new HERMES.md | Edit existing memory |
 | Action | Generates template | Opens editor |
 | When | New projects | Ongoing maintenance |
 | Workflow | One-time setup | Iterative updates |
@@ -106,11 +106,11 @@ Please add to memory: prefer async/await over promises.
 ### Method 2: Direct File Reference
 
 ```markdown
-# Add to ./CLAUDE.md:
+# Add to ./HERMES.md:
 - Always validate input with Zod schemas
 ```
 
-Claude will prompt you to confirm which memory file to update.
+Hermes will prompt you to confirm which memory file to update.
 
 ## Quick Memory Patterns
 
@@ -118,9 +118,9 @@ Claude will prompt you to confirm which memory file to update.
 
 ```markdown
 User: Remember that I prefer 2-space indentation
-Claude: I'll add this to your memory. Which file?
+Hermes: I'll add this to your memory. Which file?
 User: Project memory
-Claude: ✅ Saved to ./CLAUDE.md
+Hermes: ✅ Saved to ./HERMES.md
 ```
 
 ### Multiple Rules Addition
@@ -128,9 +128,9 @@ Claude: ✅ Saved to ./CLAUDE.md
 ```markdown
 User: # new rule into memory
       Always validate user input with Zod before processing.
-Claude: Which memory file?
+Hermes: Which memory file?
 User: Project memory
-Claude: ✅ Added to ./CLAUDE.md
+Hermes: ✅ Added to ./HERMES.md
 ```
 
 ## Environment Variables
@@ -146,18 +146,18 @@ Claude: ✅ Added to ./CLAUDE.md
 ```mermaid
 sequenceDiagram
     participant User
-    participant Claude
+    participant Hermes
     participant Editor
     participant Memory
 
-    User->>Claude: /init
-    Claude->>Memory: Create CLAUDE.md
-    Memory-->>Claude: Template created
+    User->>Hermes: /init
+    Hermes->>Memory: Create HERMES.md
+    Memory-->>Hermes: Template created
 
-    User->>Claude: /memory
-    Claude->>Editor: Open editor
+    User->>Hermes: /memory
+    Hermes->>Editor: Open editor
     Editor->>User: User edits file
     User->>Editor: Save and close
     Editor->>Memory: Write changes
-    Memory-->>Claude: Reload memory
+    Memory-->>Hermes: Reload memory
 ```

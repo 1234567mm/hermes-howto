@@ -301,7 +301,7 @@ messaging:
   discord:
     enabled: true
     bot_token: "${DISCORD_BOT_TOKEN}"
-    
+
     # Gateway connection
     gateway:
       intents:
@@ -309,12 +309,12 @@ messaging:
         - guild_messages
         - direct_messages
         - guild_members
-        
+
     # Slash commands
     commands:
       global: true
       guild_id: null  # Set for server-specific
-      
+
     # Features
     threads:
       enabled: true
@@ -326,12 +326,12 @@ messaging:
       enabled: true
     modals:
       enabled: true
-      
+
     # Access control
     roles:
       allowed: []
       denied: []
-      
+
     # Presence
     presence:
       status: "online"

@@ -1,28 +1,28 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/hermes-howto-logo-dark.svg">
+  <img alt="Hermes How To" src="../resources/logos/hermes-howto-logo.svg">
 </picture>
 
 # First Conversation
 
-Run your first successful prompt with Claude Code in 5 minutes.
+Run your first successful prompt with Hermes Agent in 5 minutes.
 
-## Starting Claude Code
+## Starting Hermes Agent
 
 Open your terminal and type:
 
 ```bash
-claude
+hermes
 ```
 
-This launches Claude Code in interactive REPL mode. You'll see the prompt bar at the bottom.
+This launches Hermes Agent in interactive REPL mode. You'll see the prompt bar at the bottom.
 
 ```mermaid
 graph TD
-    A["Terminal: claude"] --> B["Claude Code REPL"]
+    A["Terminal: hermes"] --> B["Hermes Agent REPL"]
     B --> C["Prompt Bar"]
     C --> D["Type your request"]
-    D --> E["Claude responds"]
+    D --> E["Hermes responds"]
     E --> F["Loop: continue or exit"]
 ```
 
@@ -59,20 +59,20 @@ Explain what this regex does: ^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$
 ### Single prompt
 
 ```bash
-claude "Write a hello world in Python"
+hermes "Write a hello world in Python"
 ```
 
 ### Interactive REPL
 
 ```bash
-claude
+hermes
 # Then type multiple prompts
 ```
 
 ### Pipe input
 
 ```bash
-echo "Explain this code" | claude --input src/utils.js
+echo "Explain this code" | hermes --input src/utils.js
 ```
 
 ## Useful Slash Commands
@@ -84,7 +84,7 @@ While in REPL, use these built-in commands:
 | `/help` | Show all commands |
 | `/clear` | Start a new conversation |
 | `/model` | Switch AI model |
-| `/exit` | Exit Claude Code |
+| `/exit` | Exit Hermes Agent |
 | `/plan` | Enter plan mode |
 | `/compact` | Reduce context |
 
@@ -95,23 +95,23 @@ Here's a typical first conversation:
 ```mermaid
 sequenceDiagram
     participant U as User
-    participant C as Claude Code
+    participant H as Hermes Agent
 
-    U->>C: claude
-    C-->>U: Ready! How can I help?
-    U->>C: Create a Python script that reads a CSV file
-    C-->>U: Generated script
-    U->>C: Add error handling
-    C-->>U: Updated script
-    U->>C: /exit
+    U->>H: hermes
+    H-->>U: Ready! How can I help?
+    U->>H: Create a Python script that reads a CSV file
+    H-->>U: Generated script
+    U->>H: Add error handling
+    H-->>U: Updated script
+    U->>H: /exit
 ```
 
 ### Step-by-step example
 
-**1. Start Claude Code:**
+**1. Start Hermes Agent:**
 
 ```bash
-claude
+hermes
 ```
 
 **2. Ask for a Python script:**
@@ -122,7 +122,7 @@ Create a Python script that reads a CSV file and prints the contents
 
 **3. Get the response:**
 
-Claude generates a complete script:
+Hermes generates a complete script:
 
 ```python
 import csv
@@ -155,9 +155,9 @@ Add type hints and error handling
 /exit
 ```
 
-## Claude Code vs Claude CLI
+## Hermes Agent vs Hermes CLI
 
-| Aspect | Claude Code | Claude CLI |
+| Aspect | Hermes Agent | Hermes CLI |
 |--------|-------------|------------|
 | Interface | Terminal REPL | Single prompt |
 | Context | Remembers conversation | One-shot |
@@ -199,9 +199,5 @@ Make it handle empty lists and add type hints
 ## Next Steps
 
 - [Configuration](configuration.md) - Customize your setup
-- [Slash Commands](../02-slash-commands/README.md) - Learn built-in shortcuts
-
-## See Also
-
 - [Memory](../02-memory/README.md) - Persistent context
 - [Skills](../03-skills/README.md) - Automate tasks

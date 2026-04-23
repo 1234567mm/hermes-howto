@@ -1,27 +1,27 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/hermes-howto-logo-dark.svg">
+  <img alt="Hermes How To" src="../resources/logos/hermes-howto-logo.svg">
 </picture>
 
 # Configuration
 
-Customize Claude Code for your workflow.
+Customize Hermes Agent for your workflow.
 
 ## Configuration File
 
-Claude Code stores settings in `.claude/settings.json`:
+Hermes Agent stores settings in `.hermes/settings.json`:
 
 ```bash
 # View current config
-claude /config
+hermes /config
 ```
 
 ### Default Location
 
 | Environment | Path |
 |-------------|------|
-| Project | `.claude/settings.json` |
-| Home | `~/.claude/settings.json` |
+| Project | `.hermes/settings.json` |
+| Home | `~/.hermes/settings.json` |
 
 ## Essential Settings
 
@@ -63,16 +63,16 @@ Options: `dark`, `light`, `system`
 }
 ```
 
-## Claude.md Project Context
+## HERMES.md Project Context
 
-Create a `CLAUDE.md` file in your project root to provide context:
+Create a `HERMES.md` file in your project root to provide context:
 
 ```bash
 # Initialize
-claude /init
+hermes /init
 ```
 
-### Example CLAUDE.md
+### Example HERMES.md
 
 ```markdown
 # Project Overview
@@ -102,19 +102,19 @@ This is a Python web API using FastAPI.
 
 | Variable | Purpose | Default |
 |----------|---------|---------|
-| `CLAUDE_CODE_MODEL` | Default model | `sonnet-4-20250514` |
-| `CLAUDE_CODE_PERMISSIONS` | Permission mode | `Ask` |
-| `CLAUDE_CODE_THEME` | Color theme | `dark` |
+| `HERMES_MODEL` | Default model | `opus-4.7` |
+| `HERMES_PERMISSIONS` | Permission mode | `Ask` |
+| `HERMES_THEME` | Color theme | `dark` |
 | `EDITOR` | External editor | `vim` |
 
 ### Setting Variables
 
 ```bash
 # Linux/macOS
-export CLAUDE_CODE_MODEL=opus-4.7
+export HERMES_MODEL=opus-4.7
 
 # Windows (WSL)
-export CLAUDE_CODE_MODEL=opus-4.7
+export HERMES_MODEL=opus-4.7
 ```
 
 ## Allowed Tools
@@ -185,13 +185,13 @@ export ANTHROPIC_API_KEY=sk-ant-...
 
 ## Comparison Table
 
-| Feature | Claude Code | Claude.ai Web |
-|---------|-------------|---------------|
+| Feature | Hermes Agent | Hermes.ai Web |
+|---------|--------------|---------------|
 | Terminal access | Yes | No |
 | File editing | Yes | No |
 | Git operations | Yes | No |
 | Tool execution | Yes | No |
-| Persistent memory | Via CLAUDE.md | Yes |
+| Persistent memory | Via HERMES.md | Yes |
 | Multi-file context | Large | Limited |
 
 ## Validation
@@ -199,13 +199,12 @@ export ANTHROPIC_API_KEY=sk-ant-...
 Check your configuration:
 
 ```bash
-claude /doctor
+hermes doctor
 ```
 
 This runs diagnostics and reports any issues.
 
 ## Next Steps
 
-- [Slash Commands](../02-slash-commands/README.md) - Built-in shortcuts
 - [Memory](../02-memory/README.md) - Persistent context
 - [Skills](../03-skills/README.md) - Automate tasks

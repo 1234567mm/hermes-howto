@@ -73,6 +73,12 @@ graph LR
 | **Project refs** | `.claude/refs/` | Current project |
 | **User refs** | `~/.claude/refs/` | All projects |
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz context-refs` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [context-ref-syntax.md](context-ref-syntax.md) — Reference syntax guide

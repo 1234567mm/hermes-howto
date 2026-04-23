@@ -63,6 +63,12 @@ graph LR
 | **Telegram** | Voice through Telegram bot | Medium | High |
 | **Discord** | Voice through Discord bot | Medium | High |
 
+## Verify Your Understanding
+
+1. Run `/lesson-quiz voice` to test your knowledge
+2. Review areas needing reinforcement
+3. Proceed to next module
+
 ## Next Steps
 
 - [voice-setup.md](voice-setup.md) — Configure your audio environment
