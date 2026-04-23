@@ -1,8 +1,27 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="resources/logos/hermes-howto-logo-dark.svg">
+  <img alt="Hermes How To" src="resources/logos/hermes-howto-logo.svg">
+</picture>
+
+<p align="center">
+  <a href="https://github.com/trending">
+    <img src="https://img.shields.io/badge/GitHub-🔥%20%23%201%20Trending-purple?style=for-the-badge&logo=github"/>
+  </a>
+</p>
+
+[![GitHub Stars](https://img.shields.io/github/stars/wchao-hermes/hermes-howto?style=flat&color=gold)](https://github.com/wchao-hermes/hermes-howto/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/wchao-hermes/hermes-howto?style=flat)](https://github.com/wchao-hermes/hermes-howto/network/members)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)](CHANGELOG.md)
+[![Hermes Agent](https://img.shields.io/badge/Hermes_Agent-Compatible-purple)](https://hermes-agent.dev)
+
+🌐 **Language / Ngôn ngữ / 语言 / Мова:** [English](README.md) | [Tiếng Việt](vi/README.md) | [中文](zh/README.md) | [Українська](uk/README.md)
+
 # Master Hermes Agent in a Weekend
 
 Go from basic chat to orchestrating agents, skills, MCP servers, voice, and messaging integrations — with visual tutorials, copy-paste templates, and a guided learning path.
 
-**Get Started in 15 Minutes** | **Find Your Level** | **Browse the Feature Catalog**
+**[Get Started in 15 Minutes](#get-started-in-15-minutes)** | **[Find Your Level](#not-sure-where-to-start)** | **[Browse the Feature Catalog](INDEX.md)**
 
 ---
 
@@ -51,9 +70,9 @@ This isn't another feature reference. It's a **structured, visual, example-drive
 - **Copy-paste configs** — skills, delegation templates, MCP configs, voice settings, messaging gateway integrations, and full plugin bundles
 - **Mermaid diagrams** showing how each feature works internally, so you understand *why*, not just *how*
 - **A guided learning path** that takes you from beginner to power user in 11-13 hours
-- **Built-in self-assessment** — run lessons and quizzes to identify gaps
+- **Built-in self-assessment** — run quizzes after each module to identify gaps
 
-**Start the Learning Path** -> LEARNING-ROADMAP.md
+**[Start the Learning Path](LEARNING-ROADMAP.md)**
 
 ---
 
@@ -83,30 +102,30 @@ Take the self-assessment or pick your level:
 
 | Level | You can... | Start here | Time |
 |-------|-----------|------------|------|
-| **Beginner** | Start Hermes Agent and chat | Quickstart | ~2.5 hours |
-| **Intermediate** | Use Memory and Skills | Skills | ~3.5 hours |
-| **Advanced** | Configure MCP and Delegation | Delegation | ~5 hours |
+| **Beginner** | Start Hermes Agent and chat | [Quickstart](01-quickstart/) | ~2.5 hours |
+| **Intermediate** | Use Memory and Skills | [Skills](03-skills/) | ~3.5 hours |
+| **Advanced** | Configure MCP and Delegation | [Delegation](04-delegation/) | ~5 hours |
 
 **Full learning path with all 14 modules:**
 
 | Order | Module | Level | Time |
 |-------|--------|-------|------|
-| 1 | Quickstart | Beginner | 30 min |
-| 2 | Memory | Beginner+ | 45 min |
-| 3 | Skills | Intermediate | 1 hour |
-| 4 | Delegation | Intermediate+ | 1.5 hours |
-| 5 | MCP | Intermediate+ | 1 hour |
-| 6 | Voice | Intermediate | 1 hour |
-| 7 | Messaging Gateway | Advanced | 1.5 hours |
-| 8 | Cron | Intermediate | 45 min |
-| 9 | SOUL/Personality | Intermediate | 1 hour |
-| 10 | Toolsets | Advanced | 1.5 hours |
-| 11 | Plugins | Advanced | 2 hours |
-| 12 | Checkpoints | Intermediate | 45 min |
-| 13 | Providers | Intermediate | 1 hour |
-| 14 | Context Refs | Advanced | 1 hour |
+| 1 | [Quickstart](01-quickstart/) | Beginner | 30 min |
+| 2 | [Memory](02-memory/) | Beginner+ | 45 min |
+| 3 | [Skills](03-skills/) | Intermediate | 1 hour |
+| 4 | [Delegation](04-delegation/) | Intermediate+ | 1.5 hours |
+| 5 | [MCP](05-mcp/) | Intermediate+ | 1 hour |
+| 6 | [Voice](06-voice/) | Intermediate | 1 hour |
+| 7 | [Messaging Gateway](07-messaging-gateway/) | Advanced | 1.5 hours |
+| 8 | [Cron](08-cron/) | Intermediate | 45 min |
+| 9 | [SOUL/Personality](09-soul-personality/) | Intermediate | 1 hour |
+| 10 | [Toolsets](10-toolsets/) | Advanced | 1.5 hours |
+| 11 | [Plugins](11-plugins/) | Advanced | 2 hours |
+| 12 | [Checkpoints](12-checkpoints/) | Intermediate | 45 min |
+| 13 | [Providers](13-providers/) | Intermediate | 1 hour |
+| 14 | [Context Refs](14-context-refs/) | Advanced | 1 hour |
 
-**Complete Learning Roadmap** -> LEARNING-ROADMAP.md
+**[Complete Learning Roadmap](LEARNING-ROADMAP.md)**
 
 ---
 
@@ -114,20 +133,20 @@ Take the self-assessment or pick your level:
 
 ```bash
 # 1. Clone the guide
-git clone https://github.com/your-org/hermes-howto.git
+git clone https://github.com/wchao-hermes/hermes-howto.git
 cd hermes-howto
 
 # 2. Copy your first skill
-mkdir -p /path/to/your-project/.hermes/skills
-cp -r 03-skills/example-skill /path/to/your-project/.hermes/skills/
+mkdir -p ~/.hermes/skills
+cp -r 03-skills/example-skill ~/.hermes/skills/
 
-# 3. Try it — in Hermes Agent, interact with the skill
+# 3. Try it — interact with the skill in Hermes Agent
 
 # 4. Ready for more? Set up project memory:
 cp 02-memory/project-HERMES.md /path/to/your-project/HERMES.md
 
 # 5. Configure a provider:
-cp 13-providers/example-config.json /path/to/your-project/.hermes/providers.json
+cp 13-providers/provider-examples/standard-providers.yaml ~/.hermes/providers/
 ```
 
 Want the full setup? Here's the **1-hour essential setup**:
@@ -142,7 +161,11 @@ cp 02-memory/project-HERMES.md ./HERMES.md
 # Delegation templates (15 min)
 cp -r 04-delegation/* ~/.hermes/delegation/
 
-# Weekend goal: add MCP, voice, messaging gateway, cron, plugins
+# MCP servers (15 min)
+export GITHUB_TOKEN="***"
+hermes mcp add github -- npx -y @modelcontextprotocol/server-github
+
+# Weekend goal: add voice, messaging gateway, cron, plugins
 # Follow the learning path for guided setup
 ```
 
@@ -177,7 +200,10 @@ The official docs are a feature reference. This guide is a tutorial with diagram
 11-13 hours for the full path. But you'll get immediate value in 15 minutes — just copy a skill template and try it.
 
 **Can I contribute?**
-Absolutely. See CONTRIBUTING.md for guidelines. We welcome new examples, bug fixes, documentation improvements, and community templates.
+Absolutely. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. We welcome new examples, bug fixes, documentation improvements, and community templates.
+
+**Can I read this offline?**
+Yes. Clone the repo and read locally, or generate an offline version using the scripts.
 
 ---
 
@@ -187,53 +213,56 @@ You already have Hermes Agent installed. The only thing between you and 10x prod
 
 MIT licensed. Free forever. Clone it, fork it, make it yours.
 
-**Start the Learning Path** -> LEARNING-ROADMAP.md | **Browse the Feature Catalog** -> INDEX.md | **Get Started in 15 Minutes**
+**[Start the Learning Path](LEARNING-ROADMAP.md)** | **[Browse the Feature Catalog](INDEX.md)** | **[Get Started in 15 Minutes](#get-started-in-15-minutes)**
 
 ---
 
-## Quick Navigation — All Features
+<details>
+<summary>Quick Navigation — All Features</summary>
 
 | Feature | Description | Folder |
 |---------|-------------|--------|
-| Feature Catalog | Complete reference with installation commands | INDEX.md |
-| Quickstart | Getting started guide | 01-quickstart/ |
-| Memory | Persistent context | 02-memory/ |
-| Skills | Reusable capabilities | 03-skills/ |
-| Delegation | Task delegation | 04-delegation/ |
-| MCP Protocol | External tool access | 05-mcp/ |
-| Voice | Voice interaction | 06-voice/ |
-| Messaging Gateway | Messaging platform integrations | 07-messaging-gateway/ |
-| Cron | Scheduled tasks | 08-cron/ |
-| SOUL/Personality | Agent personality configuration | 09-soul-personality/ |
-| Toolsets | Tool collections | 10-toolsets/ |
-| Plugins | Bundled features | 11-plugins/ |
-| Checkpoints | Session snapshots & rewind | 12-checkpoints/ |
-| Providers | AI provider configuration | 13-providers/ |
-| Context Refs | Context references | 14-context-refs/ |
+| **Feature Catalog** | Complete reference with installation commands | [INDEX.md](INDEX.md) |
+| **Quickstart** | Getting started guide | [01-quickstart/](01-quickstart/) |
+| **Memory** | Persistent context | [02-memory/](02-memory/) |
+| **Skills** | Reusable capabilities | [03-skills/](03-skills/) |
+| **Delegation** | Task delegation | [04-delegation/](04-delegation/) |
+| **MCP Protocol** | External tool access | [05-mcp/](05-mcp/) |
+| **Voice** | Voice interaction | [06-voice/](06-voice/) |
+| **Messaging Gateway** | Messaging platform integrations | [07-messaging-gateway/](07-messaging-gateway/) |
+| **Cron** | Scheduled tasks | [08-cron/](08-cron/) |
+| **SOUL/Personality** | Agent personality configuration | [09-soul-personality/](09-soul-personality/) |
+| **Toolsets** | Tool collections | [10-toolsets/](10-toolsets/) |
+| **Plugins** | Bundled features | [11-plugins/](11-plugins/) |
+| **Checkpoints** | Session snapshots & rewind | [12-checkpoints/](12-checkpoints/) |
+| **Providers** | AI provider configuration | [13-providers/](13-providers/) |
+| **Context Refs** | Context references | [14-context-refs/](14-context-refs/) |
 
----
+</details>
 
-## Feature Comparison
+<details>
+<summary>Feature Comparison</summary>
 
 | Feature | Invocation | Persistence | Best For |
 |---------|-----------|------------|----------|
-| Skills | Auto-invoked | Filesystem | Automated workflows |
-| Delegation | Auto-delegated | Isolated context | Task distribution |
-| Memory | Auto-loaded | Cross-session | Long-term learning |
-| MCP Protocol | Auto-queried | Real-time | Live data access |
-| Voice | User-initiated | Session | Hands-free interaction |
-| Messaging Gateway | Event-triggered | Real-time | Platform integrations |
-| Cron | Scheduled | Persistent | Recurring tasks |
-| SOUL/Personality | Configured | Persistent | Custom behavior |
-| Toolsets | Auto-available | Session | Extended capabilities |
-| Plugins | One command | All features | Complete solutions |
-| Checkpoints | Manual/Auto | Session-based | Safe experimentation |
-| Providers | Configured | Persistent | AI backend selection |
-| Context Refs | Auto-injected | Per-request | Dynamic context |
+| **Skills** | Auto-invoked | Filesystem | Automated workflows |
+| **Delegation** | Auto-delegated | Isolated context | Task distribution |
+| **Memory** | Auto-loaded | Cross-session | Long-term learning |
+| **MCP Protocol** | Auto-queried | Real-time | Live data access |
+| **Voice** | User-initiated | Session | Hands-free interaction |
+| **Messaging Gateway** | Event-triggered | Real-time | Platform integrations |
+| **Cron** | Scheduled | Persistent | Recurring tasks |
+| **SOUL/Personality** | Configured | Persistent | Custom behavior |
+| **Toolsets** | Auto-available | Session | Extended capabilities |
+| **Plugins** | One command | All features | Complete solutions |
+| **Checkpoints** | Manual/Auto | Session-based | Safe experimentation |
+| **Providers** | Configured | Persistent | AI backend selection |
+| **Context Refs** | Auto-injected | Per-request | Dynamic context |
 
----
+</details>
 
-## Installation Quick Reference
+<details>
+<summary>Installation Quick Reference</summary>
 
 ```bash
 # Skills
@@ -247,7 +276,7 @@ cp -r 04-delegation/* ~/.hermes/delegation/
 
 # MCP
 export GITHUB_TOKEN="***"
-claude mcp add github -- npx -y @modelcontextprotocol/server-github
+hermes mcp add github -- npx -y @modelcontextprotocol/server-github
 
 # Voice (configure in settings)
 # See 06-voice/README.md
@@ -265,8 +294,10 @@ claude mcp add github -- npx -y @modelcontextprotocol/server-github
 # See 12-checkpoints/README.md
 
 # Providers
-cp 13-providers/*.json ~/.hermes/providers/
+cp 13-providers/provider-examples/*.yaml ~/.hermes/providers/
 
 # Context Refs
 # See 14-context-refs/README.md
 ```
+
+</details>
