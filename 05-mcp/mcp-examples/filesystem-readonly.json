@@ -1,0 +1,23 @@
+{
+  "name": "filesystem-readonly",
+  "description": "Read-only filesystem access for safe file exploration",
+  "servers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/project"],
+      "allowedDirectories": ["/project"],
+      "filter": {
+        "tools": {
+          "include": [
+            "read_file",
+            "read_multiple_files",
+            "list_directory",
+            "directory_tree",
+            "search_files",
+            "get_file_info"
+          ]
+        }
+      }
+    }
+  }
+}

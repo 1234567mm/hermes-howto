@@ -1,0 +1,20 @@
+name: github-push-trigger
+description: React to GitHub push events
+endpoint: /webhook/github
+secret:
+  type: env
+  name: WEBHOOK_SECRET
+events:
+  - push
+filters:
+  branches:
+    - main
+    - develop
+task:
+  prompt: |
+    Analyze the recent GitHub push:
+    1. List all modified files
+    2. Summarize the changes made
+    3. Identify potential issues or concerns
+    4. Check if any new tests were added
+    5. Flag any security-sensitive changes

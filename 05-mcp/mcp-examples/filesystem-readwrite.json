@@ -1,0 +1,30 @@
+{
+  "name": "filesystem-readwrite",
+  "description": "Read-write filesystem access for development work",
+  "servers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/project"],
+      "allowedDirectories": ["/project/src", "/project/tests", "/project/docs"],
+      "filter": {
+        "tools": {
+          "include": [
+            "read_file",
+            "read_multiple_files",
+            "list_directory",
+            "directory_tree",
+            "search_files",
+            "get_file_info",
+            "write_file",
+            "create_directory",
+            "move_file"
+          ],
+          "exclude": [
+            "delete_file",
+            "delete_directory"
+          ]
+        }
+      }
+    }
+  }
+}

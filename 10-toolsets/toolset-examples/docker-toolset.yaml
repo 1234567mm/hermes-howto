@@ -1,0 +1,28 @@
+---
+name: docker-tools
+version: 1.0.0
+description: Docker container management tools
+enabled: true
+tools:
+  - name: container-list
+    command: docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+    description: List running containers with details
+
+  - name: container-stop
+    command: docker stop
+    description: Stop a running container
+    timeout: 30
+
+  - name: container-logs
+    command: docker logs
+    description: Fetch container logs
+    timeout: 60
+
+  - name: image-list
+    command: docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}"
+    description: List local Docker images
+
+  - name: image-pull
+    command: docker pull
+    description: Pull an image from registry
+    timeout: 300

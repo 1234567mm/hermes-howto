@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Hermes Agent Documentation
+    url: https://docs.hermes.ai/overview
+    about: Official Hermes Agent documentation
+  - name: Discussions
+    url: https://github.com/your-org/hermes-howto/discussions
+    about: Ask questions and share ideas with the community
+  - name: Anthropic Cookbook
+    url: https://github.com/anthropics/anthropic-cookbook
+    about: Official examples and guides from Anthropic

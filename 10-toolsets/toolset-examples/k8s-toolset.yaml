@@ -1,0 +1,29 @@
+---
+name: kubernetes-tools
+version: 1.0.0
+description: Kubernetes cluster operations
+enabled: true
+tools:
+  - name: pods-list
+    command: kubectl get pods
+    description: List pods in namespace
+    env:
+      NAMESPACE: default
+
+  - name: pods-logs
+    command: kubectl logs
+    description: Get pod logs
+    timeout: 60
+
+  - name: deploy
+    command: kubectl apply -f
+    description: Apply Kubernetes manifest
+    timeout: 120
+
+  - name: scale
+    command: kubectl scale
+    description: Scale deployment replica count
+
+  - name: port-forward
+    command: kubectl port-forward
+    description: Forward local port to pod port

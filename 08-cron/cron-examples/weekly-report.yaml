@@ -1,0 +1,18 @@
+name: weekly-report
+description: Comprehensive weekly summary every Sunday at midnight
+schedule: "0 0 * * 0"
+enabled: true
+timeout: 600
+task:
+  prompt: |
+    Create a comprehensive weekly report:
+    1. Summarize all completed tasks and milestones
+    2. List open issues and pull requests
+    3. Provide metrics: commits, lines changed, PRs merged
+    4. Identify recurring issues or patterns
+    5. Suggest priorities for the upcoming week
+    6. Include any learnings or retrospectives
+  notification:
+    on_complete: true
+    channels:
+      - email

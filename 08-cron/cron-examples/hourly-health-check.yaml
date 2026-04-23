@@ -1,0 +1,12 @@
+name: hourly-health-check
+description: System health check every hour
+schedule: "0 * * * *"
+enabled: true
+timeout: 60
+task:
+  prompt: |
+    Perform a system health check:
+    1. Check all critical service endpoints
+    2. Report any service that is down or degraded
+    3. Note any recent errors in logs
+    4. Alert if any issues found

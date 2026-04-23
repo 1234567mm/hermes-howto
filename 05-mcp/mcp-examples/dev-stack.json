@@ -1,0 +1,64 @@
+{
+  "name": "dev-stack",
+  "description": "Development stack with filesystem, GitHub, and search",
+  "servers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/project"],
+      "allowedDirectories": ["/project"],
+      "filter": {
+        "tools": {
+          "include": [
+            "read_file",
+            "read_multiple_files",
+            "list_directory",
+            "directory_tree",
+            "search_files",
+            "get_file_info",
+            "write_file",
+            "create_directory",
+            "move_file"
+          ],
+          "exclude": [
+            "delete_file",
+            "delete_directory"
+          ]
+        }
+      }
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": {
+          "type": "env",
+          "name": "GITHUB_TOKEN"
+        }
+      },
+      "filter": {
+        "tools": {
+          "include": [
+            "github_get_file",
+            "github_search_issues",
+            "github_search_repositories",
+            "github_list_issues",
+            "github_get_issue",
+            "github_create_issue",
+            "github_list_pulls",
+            "github_get_pull_request"
+          ]
+        }
+      }
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": {
+          "type": "env",
+          "name": "BRAVE_API_KEY"
+        }
+      }
+    }
+  }
+}

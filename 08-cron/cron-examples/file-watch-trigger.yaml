@@ -1,0 +1,19 @@
+name: file-watch-trigger
+description: React to configuration file changes
+endpoint: /webhook/file
+events:
+  - file.modified
+filters:
+  paths:
+    - "*.yaml"
+    - "*.yml"
+    - "config/**"
+    - "settings/**"
+task:
+  prompt: |
+    Process the modified configuration file:
+    1. Validate YAML/JSON syntax
+    2. Check for any deprecated settings
+    3. Verify required fields are present
+    4. Report any configuration issues
+    5. Suggest improvements if applicable

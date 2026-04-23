@@ -1,0 +1,23 @@
+name: pr-review-trigger
+description: Automated pull request review on PR events
+endpoint: /webhook/github
+secret:
+  type: env
+  name: WEBHOOK_SECRET
+events:
+  - pull_request.opened
+  - pull_request.updated
+  - pull_request.reopened
+filters:
+  branches:
+    - main
+    - develop
+task:
+  prompt: |
+    Review the new pull request:
+    1. Analyze the PR title and description for completeness
+    2. Check that all required fields are filled
+    3. Identify any missing tests or documentation
+    4. Review code changes for potential issues
+    5. Suggest improvements or concerns
+    6. Post review comments as appropriate

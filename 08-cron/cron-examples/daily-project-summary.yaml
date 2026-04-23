@@ -1,0 +1,19 @@
+name: daily-project-summary
+description: Daily project activity summary on weekdays at 9 AM
+schedule: "0 9 * * 1-5"
+enabled: true
+timeout: 300
+timezone: America/New_York
+task:
+  prompt: |
+    Generate a comprehensive daily project summary:
+    1. List all commits from the last 24 hours
+    2. Summarize open pull requests and their status
+    3. Highlight any issues that were opened or closed
+    4. Note any deployments or releases
+    5. Identify any blockers or concerns
+  notification:
+    on_complete: true
+    channels:
+      - slack
+      - email

@@ -1,0 +1,15 @@
+name: interval-backup
+description: Backup critical files every 6 hours using interval
+interval: "6h"
+enabled: true
+timeout: 600
+task:
+  prompt: |
+    Perform a backup of critical project files:
+    1. Backup configuration files (config/, *.yaml, *.json)
+    2. Backup database schemas and recent data
+    3. Archive and compress backup files
+    4. Verify backup integrity
+    5. Log backup completion with timestamp
+on_failure: retry
+max_retries: 3

@@ -1,0 +1,22 @@
+{
+  "name": "database-query",
+  "description": "PostgreSQL database query access (read-only)",
+  "servers": {
+    "postgresql": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "DATABASE_URL": {
+          "type": "env",
+          "name": "DATABASE_URL"
+        }
+      },
+      "filter": {
+        "tools": {
+          "include": ["postgresql_query"],
+          "exclude": ["postgresql_execute"]
+        }
+      }
+    }
+  }
+}

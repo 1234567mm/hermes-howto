@@ -1,0 +1,16 @@
+{
+  "name": "github-full",
+  "description": "Full GitHub integration for repository management",
+  "servers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": {
+          "type": "env",
+          "name": "GITHUB_TOKEN"
+        }
+      }
+    }
+  }
+}
