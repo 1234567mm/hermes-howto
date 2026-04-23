@@ -1,0 +1,8 @@
+[tool.bandit]
+exclude_dirs = ["tests"]
+
+[tool.mypy]
+exclude = ["tests"]
+
+[tool.ruff]
+exclude = ["tests"]
