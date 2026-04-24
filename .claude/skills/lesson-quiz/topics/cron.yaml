@@ -1,0 +1,117 @@
+topic: cron
+title: "Cron & Automation Quiz"
+description: Test your knowledge of Hermes scheduled tasks and automation
+module: "08-cron"
+
+questions:
+  - question: "What is the cron expression for 'every weekday at 9 AM'?"
+    category: conceptual
+    choices:
+      - text: "0 9 * * 1-5"
+        key: "A"
+      - text: "0 9 * * 0-4"
+        key: "B"
+      - text: "0 9 * * 1,2,3,4,5"
+        key: "C"
+      - text: "Both A and C"
+        key: "D"
+    correct_answer: "D"
+    explanation: "Both '1-5' and '1,2,3,4,5' are valid ways to specify weekdays (Monday-Friday) in cron expressions. Day-of-week 0 = Sunday, 1-5 = Monday-Friday."
+
+  - question: "How do you list all currently configured cron jobs?"
+    category: practical
+    choices:
+      - text: "cron list"
+        key: "A"
+      - text: "hermes cron show"
+        key: "B"
+      - text: "list cron-jobs"
+        key: "C"
+      - text: "crontab -l"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'cron list' command displays all configured jobs with their status, next run time, and enabled/disabled state."
+
+  - question: "What is the special string that is equivalent to '0 * * * *'?"
+    category: conceptual
+    choices:
+      - text: "@hourly"
+        key: "A"
+      - text: "@daily"
+        key: "B"
+      - text: "@weekly"
+        key: "C"
+      - text: "@minutely"
+        key: "D"
+    correct_answer: "A"
+    explanation: "@hourly is the special string equivalent to '0 * * * *', meaning 'at minute 0 of every hour'."
+
+  - question: "What is the default timeout for a cron job if not specified?"
+    category: conceptual
+    choices:
+      - text: "300 seconds (5 minutes)"
+        key: "A"
+      - text: "60 seconds (1 minute)"
+        key: "B"
+      - text: "1800 seconds (30 minutes)"
+        key: "C"
+      - text: "No timeout (runs until completion)"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The default timeout for a cron job is 300 seconds (5 minutes). You can override this with the 'timeout' field in the job configuration."
+
+  - question: "How do you manually trigger a cron job to run immediately?"
+    category: practical
+    choices:
+      - text: "cron run <job-name>"
+        key: "A"
+      - text: "cron execute <job-name>"
+        key: "B"
+      - text: "hermes cron trigger <job-name>"
+        key: "C"
+      - text: "run-now <job-name>"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'cron run <job-name>' command manually triggers immediate execution of a scheduled job."
+
+  - question: "What are the three main scheduling types supported by Hermes Cron?"
+    category: conceptual
+    choices:
+      - text: "Cron (time-based), Webhook (event-driven), Interval (fixed frequency)"
+        key: "A"
+      - text: "Daily, Weekly, Monthly"
+        key: "B"
+      - text: "One-time, Recurring, Conditional"
+        key: "C"
+      - text: "Background, Foreground, Daemon"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Hermes Cron supports three scheduling types: Cron expressions (time-based), webhooks (event-driven), and intervals (fixed frequency like 'every 15 minutes')."
+
+  - question: "What is the correct format for an interval-based schedule in Hermes?"
+    category: practical
+    choices:
+      - text: 'interval: "15m" for every 15 minutes'
+        key: "A"
+      - text: 'schedule: "every 15 minutes"'
+        key: "B"
+      - text: 'frequency: 15m'
+        key: "C"
+      - text: 'repeat: 15m'
+        key: "D"
+    correct_answer: "A"
+    explanation: "Interval-based schedules use the 'interval' field with format like '5m', '1h', '6h', '1d', or '1w' for fixed frequency execution."
+
+  - question: "Which command enables a previously disabled cron job?"
+    category: practical
+    choices:
+      - text: "cron enable <job-name>"
+        key: "A"
+      - text: "cron start <job-name>"
+        key: "B"
+      - text: "cron activate <job-name>"
+        key: "C"
+      - text: "job-enable <job-name>"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'cron enable <job-name>' command enables a disabled job. Related commands: 'cron disable', 'cron remove', 'cron history'."

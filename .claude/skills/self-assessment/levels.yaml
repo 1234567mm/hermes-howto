@@ -1,11 +1,20 @@
 beginner:
-  score_range: 0-2
-  recommended_modules: 01-05
+  score_range: "0-5"
+  total_max: 16
+  recommended_start: "01-quickstart"
+  recommended_modules: "01-05"
+  description: "新手入门 — 建议从快速入门和内存系统开始"
 
 intermediate:
-  score_range: 3-5
-  recommended_modules: 06-10
+  score_range: "6-11"
+  total_max: 16
+  recommended_start: "06-voice"
+  recommended_modules: "06-10"
+  description: "中级进阶 — 建议从语音和消息网关开始"
 
 advanced:
-  score_range: 6-8
-  recommended_modules: 11-14
+  score_range: "12-16"
+  total_max: 16
+  recommended_start: "11-plugins"
+  recommended_modules: "11-14"
+  description: "高级精通 — 建议从插件和高级功能开始"

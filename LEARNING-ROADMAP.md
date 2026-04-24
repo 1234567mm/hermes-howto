@@ -34,6 +34,10 @@ To find your exact starting level, run:
 /self-assessment
 ```
 
+Runs a guided quiz with two modes:
+- **Quick mode** (2 min, 8 questions) — get your overall level (Beginner/Intermediate/Advanced)
+- **Deep mode** (5 min, 10 domains) — get detailed per-domain scoring and personalized learning path
+
 > **Tip**: If you're unsure, start one level lower. It's better to review familiar material quickly than to miss foundational concepts.
 
 ---
@@ -498,6 +502,23 @@ hermes -p "Review this code" --provider anthropic
 ## Assessment & Verification
 
 After completing each milestone, verify your understanding:
+
+### Verify Each Milestone
+
+After completing each milestone, run the quiz for that module:
+
+- After Milestone 1A: `/lesson-quiz quickstart` and `/lesson-quiz memory`
+- After Milestone 1B: `/lesson-quiz skills` and `/lesson-quiz checkpoints`
+- After Milestone 2A: `/lesson-quiz delegation`, `/lesson-quiz mcp`, and `/lesson-quiz cron`
+- After Milestone 2B: `/lesson-quiz voice` and `/lesson-quiz messaging`
+- After Milestone 3A: `/lesson-quiz soul-personality` and `/lesson-quiz toolsets`
+- After Milestone 3B: `/lesson-quiz plugins`, `/lesson-quiz providers`, and `/lesson-quiz context-refs`
+
+You can also use module numbers: `/lesson-quiz 01` = `/lesson-quiz quickstart`, `/lesson-quiz 02` = `/lesson-quiz memory`, etc.
+
+---
+
+### Level 1 Assessment
 
 ### Level 1 Assessment
 - [ ] Can start and configure Hermes Agent

@@ -1,0 +1,117 @@
+topic: soul-personality
+title: "SOUL & Personality Quiz"
+description: Test your knowledge of Hermes personality configuration
+module: "09-soul-personality"
+
+questions:
+  - question: "What does SOUL stand for in the Hermes SOUL system?"
+    category: conceptual
+    choices:
+      - text: "Systemic Operational Utility Layer"
+        key: "A"
+      - text: "Specialized Operating User Language"
+        key: "B"
+      - text: "Standard Output User Logic"
+        key: "C"
+      - text: "Systematic Optimization Utility Library"
+        key: "D"
+    correct_answer: "A"
+    explanation: "SOUL stands for Systemic Operational Utility Layer. It is Hermes's personality engine that shapes how Hermes thinks and communicates."
+
+  - question: "Where should you place your SOUL.md file for project-level personality?"
+    category: practical
+    choices:
+      - text: "./.claude/SOUL.md"
+        key: "A"
+      - text: "~/.claude/SOUL.md"
+        key: "B"
+      - text: "./SOUL.md"
+        key: "C"
+      - text: "~/.hermes/SOUL.md"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Project SOUL is placed at '.claude/SOUL.md' and overrides User SOUL ('~/.claude/SOUL.md') for that specific project."
+
+  - question: "What is the difference between Skills and SOUL?"
+    category: conceptual
+    choices:
+      - text: "Skills add what Hermes CAN do; SOUL shapes HOW Hermes communicates"
+        key: "A"
+      - text: "SOUL adds capabilities; Skills shape personality"
+        key: "B"
+      - text: "They are different names for the same feature"
+        key: "C"
+      - text: "Skills are temporary; SOUL is permanent"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Skills add capabilities and expertise (what Hermes can do), while SOUL defines personality, communication style, and behavioral patterns (how Hermes communicates)."
+
+  - question: "How many layers does the SOUL personality system have?"
+    category: conceptual
+    choices:
+      - text: "4 layers (Core Traits, Communication Style, Behavioral Rules, Expertise Framing)"
+        key: "A"
+      - text: "2 layers (Personality and Communication)"
+        key: "B"
+      - text: "3 layers (Tone, Style, and Behavior)"
+        key: "C"
+      - text: "5 layers (including Emotional and Cognitive)"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The SOUL personality system has 4 layers: Core Traits (fundamental characteristics), Communication Style (tone, vocabulary), Behavioral Rules (when to do X vs Y), and Expertise Framing (how to present knowledge)."
+
+  - question: "What command initializes a new SOUL.md file?"
+    category: practical
+    choices:
+      - text: "There is no init command; SOUL.md is created manually"
+        key: "A"
+      - text: "/soul init"
+        key: "B"
+      - text: "hermes soul create"
+        key: "C"
+      - text: "/personality new"
+        key: "D"
+    correct_answer: "A"
+    explanation: "There is no automatic init command for SOUL. You create SOUL.md manually following the format specification in soul-md.md."
+
+  - question: "How does SOUL transform a standard AI into a branded assistant?"
+    category: conceptual
+    choices:
+      - text: "By adapting vocabulary, following consistent patterns, embodying brand voice, and applying past interactions"
+        key: "A"
+      - text: "By adding more capabilities and tools"
+        key: "B"
+      - text: "By connecting to external data sources"
+        key: "C"
+      - text: "By enabling voice interaction mode"
+        key: "D"
+    correct_answer: "A"
+    explanation: "SOUL transforms responses by: adapting vocabulary to communication style, following consistent decision-making patterns, embodying brand voice and values, and remembering/applying past interactions."
+
+  - question: "Which file location has higher priority for SOUL?"
+    category: practical
+    choices:
+      - text: "Project SOUL (.claude/SOUL.md) overrides User SOUL (~/.claude/SOUL.md)"
+        key: "A"
+      - text: "User SOUL has higher priority"
+        key: "B"
+      - text: "They are combined with equal priority"
+        key: "C"
+      - text: "System SOUL has highest priority"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Project SOUL at .claude/SOUL.md overrides User SOUL at ~/.claude/SOUL.md for that specific project. This allows team-specific personality settings."
+
+  - question: "What is the relationship between SOUL and Delegation in Hermes?"
+    category: conceptual
+    choices:
+      - text: "SOUL shapes how the main agent communicates; Delegation spawns subagents with potentially different personalities"
+        key: "A"
+      - text: "Delegation overrides SOUL settings"
+        key: "B"
+      - text: "SOUL only applies to subagents"
+        key: "C"
+      - text: "They are independent and do not affect each other"
+        key: "D"
+    correct_answer: "A"
+    explanation: "SOUL shapes the main agent's communication and behavior. When you delegate to subagents, they can have their own SOUL configuration or inherit from the main agent."

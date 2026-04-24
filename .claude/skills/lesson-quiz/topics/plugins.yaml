@@ -1,0 +1,117 @@
+topic: plugins
+title: "Plugins Quiz"
+description: Test your knowledge of Hermes plugin system
+module: "11-plugins"
+
+questions:
+  - question: "What command installs a Hermes plugin?"
+    category: practical
+    choices:
+      - text: "plugin install <name>"
+        key: "A"
+      - text: "hermes plugin add <name>"
+        key: "B"
+      - text: "npm install hermes-<name>"
+        key: "C"
+      - text: "install plugin <name>"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'plugin install <name>' command installs a plugin from the registry. Related commands: 'plugin list', 'plugin uninstall', 'plugin enable', 'plugin disable', 'plugin update'."
+
+  - question: "What does a Plugin typically bundle together?"
+    category: conceptual
+    choices:
+      - text: "Tools, Skills, and Agent configurations"
+        key: "A"
+      - text: "Only tools"
+        key: "B"
+      - text: "Only Skills"
+        key: "C"
+      - text: "Configuration files only"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Plugins bundle related components together: tools, skills, and agent configurations as a complete feature package for easy distribution and enable/disable."
+
+  - question: "What is the plugin manifest file called?"
+    category: practical
+    choices:
+      - text: "PLUGIN.md"
+        key: "A"
+      - text: "plugin.json"
+        key: "B"
+      - text: "manifest.yaml"
+        key: "C"
+      - text: "plugin-config.md"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The plugin manifest is called PLUGIN.md, which defines the plugin's structure, metadata, and bundled components."
+
+  - question: "What is the directory structure for a custom plugin?"
+    category: practical
+    choices:
+      - text: "my-plugin/ containing PLUGIN.md, skills/, tools/, and agents/ directories"
+        key: "A"
+      - text: "plugin.json with all definitions inline"
+        key: "B"
+      - text: "A single executable file"
+        key: "C"
+      - text: "tools.yaml and skills.yaml separate files"
+        key: "D"
+    correct_answer: "A"
+    explanation: "A plugin has a directory structure with PLUGIN.md as manifest, and subdirectories for skills/, tools/, and agents/ containing the bundled components."
+
+  - question: "What is the difference between a Plugin and a Skill?"
+    category: conceptual
+    choices:
+      - text: "Plugin bundles tools+skills+agents; Skill is a standalone reusable capability"
+        key: "A"
+      - text: "Skill bundles tools+plugins; Plugin is standalone"
+        key: "B"
+      - text: "They are the same concept"
+        key: "C"
+      - text: "Plugins are temporary; Skills are permanent"
+        key: "D"
+    correct_answer: "A"
+    explanation: "A Plugin is a complete feature package bundling tools, skills, and agents together. A Skill is a standalone reusable capability that can exist independently or within a plugin."
+
+  - question: "Where are project-level plugins stored?"
+    category: practical
+    choices:
+      - text: ".claude/plugins/"
+        key: "A"
+      - text: "~/.hermes/plugins/"
+        key: "B"
+      - text: "./plugins/"
+        key: "C"
+      - text: "~/.claude/"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Project plugins are stored in '.claude/plugins/' and apply only to the current project. User plugins go in '~/.claude/plugins/' for all projects."
+
+  - question: "What plugin management command shows all installed plugins?"
+    category: practical
+    choices:
+      - text: "plugin list"
+        key: "A"
+      - text: "plugin show"
+        key: "B"
+      - text: "hermes plugins"
+        key: "C"
+      - text: "ls plugins"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'plugin list' command displays all installed plugins with their version, status (enabled/disabled), and bundled components."
+
+  - question: "What types of plugins does Hermes support?"
+    category: conceptual
+    choices:
+      - text: "Built-in, Community, Local, and Remote"
+        key: "A"
+      - text: "Free and Paid"
+        key: "B"
+      - text: "Official and Unofficial only"
+        key: "C"
+      - text: "Single and Multi-user"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Hermes supports four plugin types: Built-in (ships with Hermes), Community (shared via registry), Local (installed from local paths), and Remote (installed from git URLs)."

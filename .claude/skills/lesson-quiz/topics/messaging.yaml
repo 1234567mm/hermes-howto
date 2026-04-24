@@ -1,0 +1,117 @@
+topic: messaging
+title: "Messaging Gateway Quiz"
+description: Test your knowledge of Hermes messaging platform integrations
+module: "07-messaging-gateway"
+
+questions:
+  - question: "What is the first step to create a Telegram bot for Hermes?"
+    category: conceptual
+    choices:
+      - text: "Send /newbot to @BotFather on Telegram"
+        key: "A"
+      - text: "Install the hermes-gateway package"
+        key: "B"
+      - text: "Configure the bot token in settings"
+        key: "C"
+      - text: "Start the hermes gateway service"
+        key: "D"
+    correct_answer: "A"
+    explanation: "You start by sending /newbot to @BotFather on Telegram, which creates your bot and provides a bot token for authentication."
+
+  - question: "How do you start the Hermes Messaging Gateway for Telegram?"
+    category: practical
+    choices:
+      - text: "hermes gateway telegram --port 8080"
+        key: "A"
+      - text: "hermes start telegram"
+        key: "B"
+      - text: "telegram-bot start --hermes"
+        key: "C"
+      - text: "hermes messaging telegram"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The hermes gateway telegram --port 8080 command starts the gateway with Telegram webhook mode on the specified port."
+
+  - question: "What environment variable is required to configure Telegram integration?"
+    category: practical
+    choices:
+      - text: "TELEGRAM_BOT_TOKEN"
+        key: "A"
+      - text: "TELEGRAM_API_KEY"
+        key: "B"
+      - text: "HERMES_BOT_TOKEN"
+        key: "C"
+      - text: "MESSAGING_TOKEN"
+        key: "D"
+    correct_answer: "A"
+    explanation: "TELEGRAM_BOT_TOKEN is the bot token provided by @BotFather when you create a new Telegram bot."
+
+  - question: "What messaging platforms does Hermes Messaging Gateway support?"
+    category: conceptual
+    choices:
+      - text: "Telegram, Discord, and Slack"
+        key: "A"
+      - text: "Telegram only"
+        key: "B"
+      - text: "Discord and Slack only"
+        key: "C"
+      - text: "WhatsApp, Discord, and Telegram"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Hermes Messaging Gateway supports Telegram, Discord, and Slack for multi-platform messaging integration."
+
+  - question: "What is required for local development with Telegram webhooks?"
+    category: practical
+    choices:
+      - text: "A tunneling service like ngrok or cloudflared"
+        key: "A"
+      - text: "A public IP address"
+        key: "B"
+      - text: "SSL certificate configuration"
+        key: "C"
+      - text: "Docker containerization"
+        key: "D"
+    correct_answer: "A"
+    explanation: "For local development, you need a tunneling service (ngrok or cloudflared) to expose your local server to Telegram's webhook API."
+
+  - question: "How do you set up a webhook for Telegram?"
+    category: practical
+    choices:
+      - text: "hermes gateway telegram set-webhook --url https://your-domain.com/telegram"
+        key: "A"
+      - text: "telegram-webhook configure --url https://your-domain.com"
+        key: "B"
+      - text: "set webhook telegram https://your-domain.com/telegram"
+        key: "C"
+      - text: "ngrok http 8080 --webhook=telegram"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The hermes gateway telegram set-webhook command registers your webhook URL with Telegram."
+
+  - question: "What command do you use in a Telegram group to register the bot?"
+    category: practical
+    choices:
+      - text: "/here"
+        key: "A"
+      - text: "/register"
+        key: "B"
+      - text: "/join"
+        key: "C"
+      - text: "/activate"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The /here command registers the bot in the current group, while /allgroups lists allowed groups and /deny removes group access."
+
+  - question: "What is a key difference between Telegram and Slack bot integration in Hermes?"
+    category: conceptual
+    choices:
+      - text: "Telegram uses webhooks by default; Slack uses event subscriptions"
+        key: "A"
+      - text: "Slack supports voice messages; Telegram does not"
+        key: "B"
+      - text: "Telegram is easier to set up; Slack requires app configuration"
+        key: "C"
+      - text: "Slack uses slash commands natively; Telegram requires prefix configuration"
+        key: "D"
+    correct_answer: "C"
+    explanation: "Telegram has the easiest setup (just a bot token), while Slack requires app configuration with signing secrets and OAuth tokens."

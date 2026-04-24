@@ -80,7 +80,9 @@ This isn't another feature reference. It's a **structured, visual, example-drive
 
 ### 1. Find your level
 
-Take the self-assessment quiz or pick your current experience level. Get a personalized roadmap based on what you already know.
+Run `/self-assessment` in Hermes Agent. Get a personalized roadmap based on what you already know.
+
+> Available in both **Quick mode** (2 min, 8 questions) and **Deep mode** (5 min, 10 domains with individual scoring).
 
 ### 2. Follow the guided path
 
@@ -92,7 +94,28 @@ The real power is in combining features. Learn to wire skills + delegation + MCP
 
 ### 4. Test your understanding
 
-Run quizzes after each module. The quiz pinpoints what you missed so you can fill gaps fast.
+Run `/lesson-quiz [topic]` after each module. The quiz pinpoints what you missed so you can fill gaps fast.
+
+Available for all 14 modules:
+
+| Command | Module |
+|---------|--------|
+| `/lesson-quiz quickstart` | 01 Quickstart |
+| `/lesson-quiz memory` | 02 Memory |
+| `/lesson-quiz skills` | 03 Skills |
+| `/lesson-quiz delegation` | 04 Delegation |
+| `/lesson-quiz mcp` | 05 MCP |
+| `/lesson-quiz voice` | 06 Voice |
+| `/lesson-quiz messaging` | 07 Messaging Gateway |
+| `/lesson-quiz cron` | 08 Cron |
+| `/lesson-quiz soul-personality` | 09 Soul & Personality |
+| `/lesson-quiz toolsets` | 10 Toolsets |
+| `/lesson-quiz plugins` | 11 Plugins |
+| `/lesson-quiz checkpoints` | 12 Checkpoints |
+| `/lesson-quiz providers` | 13 Providers |
+| `/lesson-quiz context-refs` | 14 Context Refs |
+
+You can also use the module number: `/lesson-quiz 07` = `/lesson-quiz messaging`.
 
 ---
 

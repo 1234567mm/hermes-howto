@@ -1,0 +1,117 @@
+topic: providers
+title: "Providers Quiz"
+description: Test your knowledge of Hermes AI provider configuration
+module: "13-providers"
+
+questions:
+  - question: "What command lists all configured AI providers?"
+    category: practical
+    choices:
+      - text: "provider list"
+        key: "A"
+      - text: "hermes providers"
+        key: "B"
+      - text: "list providers"
+        key: "C"
+      - text: "providers show"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'provider list' command shows all configured providers with their status, model, and API key configuration. Related: 'provider show', 'provider default', 'provider test', 'provider add'."
+
+  - question: "What is the difference between a Provider and a Model?"
+    category: conceptual
+    choices:
+      - text: "Provider is the service (Anthropic, OpenAI); Model is the specific AI model instance (Claude 3.5, GPT-4)"
+        key: "A"
+      - text: "They are the same thing"
+        key: "B"
+      - text: "Model is the service; Provider is the AI instance"
+        key: "C"
+      - text: "Provider is for local models; Model is for cloud"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Provider is the service provider (Anthropic, OpenAI, Google, Ollama), while Model is the specific AI model instance from that provider (Claude 3.5, GPT-4, Gemini)."
+
+  - question: "What command sets the default AI provider?"
+    category: practical
+    choices:
+      - text: "provider default <name>"
+        key: "A"
+      - text: "set-default-provider <name>"
+        key: "B"
+      - text: "hermes provider --default <name>"
+        key: "C"
+      - text: "provider use <name>"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'provider default <name>' command sets the default provider for all new sessions. This can be overridden per-session if needed."
+
+  - question: "Which provider has a 200K context window and supports function calling?"
+    category: conceptual
+    choices:
+      - text: "Anthropic"
+        key: "A"
+      - text: "Google (Gemini)"
+        key: "B"
+      - text: "OpenAI"
+        key: "C"
+      - text: "Ollama"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Anthropic provides 200K context window and supports function calling. OpenAI has 128K, Google has 32K. Ollama varies by model and has limited function calling."
+
+  - question: "What command tests the connection to a specific provider?"
+    category: practical
+    choices:
+      - text: "provider test <name>"
+        key: "A"
+      - text: "provider ping <name>"
+        key: "B"
+      - text: "test-connection <name>"
+        key: "C"
+      - text: "hermes test <name>"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'provider test <name>' command verifies connectivity and authentication with a configured provider, checking API key validity and response time."
+
+  - question: "What is a recommended use case for the Ollama provider?"
+    category: conceptual
+    choices:
+      - text: "Self-hosted models for privacy or offline development"
+        key: "A"
+      - text: "Production high-volume applications"
+        key: "B"
+      - text: "Multi-modal tasks"
+        key: "C"
+      - text: "Real-time voice applications"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Ollama is recommended for self-hosted models enabling privacy-sensitive applications or offline development. It's not ideal for production high-volume or multi-modal tasks."
+
+  - question: "What information is needed to configure a new provider?"
+    category: practical
+    choices:
+      - text: "API keys, endpoints, and model selection"
+        key: "A"
+      - text: "Only the provider name"
+        key: "B"
+      - text: "Docker configuration"
+        key: "C"
+      - text: "Hardware specifications"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Configuring a new provider requires: API keys and authentication credentials, API endpoints (if custom), and model selection with parameters like temperature and max tokens."
+
+  - question: "What command adds a new provider configuration?"
+    category: practical
+    choices:
+      - text: "provider add <name>"
+        key: "A"
+      - text: "new-provider <name>"
+        key: "B"
+      - text: "hermes provider create <name>"
+        key: "C"
+      - text: "add-provider <name>"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'provider add <name>' command starts the interactive configuration process for a new provider, prompting for API keys and other settings."

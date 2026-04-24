@@ -1,0 +1,117 @@
+topic: context-refs
+title: "Context Refs Quiz"
+description: Test your knowledge of Hermes context reference system
+module: "14-context-refs"
+
+questions:
+  - question: "What is a Context Reference (ref) in Hermes?"
+    category: conceptual
+    choices:
+      - text: "A way to reference external files, URLs, or documentation directly within prompts for grounded responses"
+        key: "A"
+      - text: "A type of memory that persists across sessions"
+        key: "B"
+      - text: "A checkpoint snapshot"
+        key: "C"
+      - text: "A reference to another agent"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Context References (refs) enable referencing external content - files, URLs, documentation - directly within prompts for targeted, grounded responses that reduce hallucination."
+
+  - question: "What command lists all configured context references?"
+    category: practical
+    choices:
+      - text: "ref list"
+        key: "A"
+      - text: "context list"
+        key: "B"
+      - text: "ls refs"
+        key: "C"
+      - text: "show refs"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'ref list' command displays all configured context references with their names, targets, and cache status. Related: 'ref add', 'ref remove', 'ref refresh', 'ref cache'."
+
+  - question: "What is the key difference between Context Refs and Memory?"
+    category: conceptual
+    choices:
+      - text: "Refs are per-prompt with explicit reference; Memory is persistent and always loaded"
+        key: "A"
+      - text: "They are the same thing"
+        key: "B"
+      - text: "Refs are for code; Memory is for documents"
+        key: "C"
+      - text: "Refs update automatically; Memory requires manual updates"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Context Refs are per-prompt (explicit reference each time) with specific content scope. Memory is persistent across sessions, always loaded, with broader context scope."
+
+  - question: "What is the syntax for referencing specific lines in a file?"
+    category: practical
+    choices:
+      - text: "file://path#L5-L15"
+        key: "A"
+      - text: "file://path:5:15"
+        key: "B"
+      - text: "file://path?lines=5-15"
+        key: "C"
+      - text: "@path[5-15]"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The syntax 'file://path#L5-L15' references specific lines (5 through 15) in a file. For function references, use 'file://path#function-name'."
+
+  - question: "What command adds a new context reference?"
+    category: practical
+    choices:
+      - text: "ref add <name> <target>"
+        key: "A"
+      - text: "new-ref <name> <target>"
+        key: "B"
+      - text: "context add <name> <target>"
+        key: "C"
+      - text: "add-ref <name> <target>"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'ref add <name> <target>' command creates a new context reference with a short name pointing to the target file, URL, or documentation."
+
+  - question: "What type of content can be referenced using Context Refs?"
+    category: conceptual
+    choices:
+      - text: "Local files (file://), web content (https://), specific code sections, and internal docs (docs://)"
+        key: "A"
+      - text: "Only local files"
+        key: "B"
+      - text: "Only URLs"
+        key: "C"
+      - text: "Only code files"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Context Refs support multiple types: file:// for local files, https:// for web content, section references with #L syntax, function references with #name, and docs:// for internal docs."
+
+  - question: "What does the 'ref cache' command do?"
+    category: practical
+    choices:
+      - text: "Caches the referenced content for faster repeated access"
+        key: "A"
+      - text: "Clears all cached references"
+        key: "B"
+      - text: "Lists cached references only"
+        key: "C"
+      - text: "Encrypts the reference"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'ref cache <name>' command caches the referenced content locally for faster repeated access without re-fetching (especially useful for remote URLs)."
+
+  - question: "What is the main benefit of using Context Refs?"
+    category: conceptual
+    choices:
+      - text: "Reduced hallucination by providing authoritative source material explicitly in the prompt"
+        key: "A"
+      - text: "Faster response times"
+        key: "B"
+      - text: "Better formatting of output"
+        key: "C"
+      - text: "Automatic memory management"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Context Refs reduce hallucination by explicitly providing authoritative source material in the prompt. This grounds responses in facts rather than potentially inaccurate LLM knowledge."

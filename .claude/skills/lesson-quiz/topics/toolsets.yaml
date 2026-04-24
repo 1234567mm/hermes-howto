@@ -1,0 +1,117 @@
+topic: toolsets
+title: "Toolsets Quiz"
+description: Test your knowledge of Hermes tool collections
+module: "10-toolsets"
+
+questions:
+  - question: "What is a Toolset in Hermes Agent?"
+    category: conceptual
+    choices:
+      - text: "A curated collection of related tools that can be enabled, disabled, or swapped as a unit"
+        key: "A"
+      - text: "A single tool definition file"
+        key: "B"
+      - text: "A container for Docker tools"
+        key: "C"
+      - text: "A plugin bundle"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Toolsets are curated collections of related tools (e.g., 'docker-tools', 'cloud-ops') that can be enabled, disabled, or swapped as a unit for organized tool access."
+
+  - question: "What command lists all available toolsets?"
+    category: practical
+    choices:
+      - text: "toolset list"
+        key: "A"
+      - text: "ls toolsets"
+        key: "B"
+      - text: "hermes toolsets"
+        key: "C"
+      - text: "tools --list"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'toolset list' command shows all available toolsets, their status (enabled/disabled), and what tools each contains."
+
+  - question: "What is the main advantage of using Toolsets over individual tools?"
+    category: conceptual
+    choices:
+      - text: "Group activation/deactivation and automatic dependency resolution within the set"
+        key: "A"
+      - text: "Faster execution speed"
+        key: "B"
+      - text: "Unlimited tool storage"
+        key: "C"
+      - text: "Automatic updates"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Toolsets provide group activation (enable/disable entire capability sets) and auto-resolved dependencies within the set, unlike managing tools individually."
+
+  - question: "How do you enable a specific toolset?"
+    category: practical
+    choices:
+      - text: "toolset enable <name>"
+        key: "A"
+      - text: "enable toolset <name>"
+        key: "B"
+      - text: "hermes enable toolset"
+        key: "C"
+      - text: "tools activate <name>"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'toolset enable <name>' command activates a toolset. Related commands: 'toolset disable', 'toolset show', 'toolset validate'."
+
+  - question: "What is the structure of a custom toolset directory?"
+    category: practical
+    choices:
+      - text: "toolset-name/ containing TOOLSET.md and tools/ directory with tool definitions"
+        key: "A"
+      - text: "tools.yaml containing all tool definitions"
+        key: "B"
+      - text: "A single JSON file with tool configurations"
+        key: "C"
+      - text: "An executable shell script"
+        key: "D"
+    correct_answer: "A"
+    explanation: "A custom toolset has a directory structure with TOOLSET.md as the manifest and tools/ subdirectory containing individual tool definition files."
+
+  - question: "What are the three main toolset types in Hermes?"
+    category: conceptual
+    choices:
+      - text: "core (essential tools), git (version control), and cloud (cloud provider operations)"
+        key: "A"
+      - text: "basic, advanced, and premium"
+        key: "B"
+      - text: "local, remote, and distributed"
+        key: "C"
+      - text: "read-only, write, and admin"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The three main built-in toolsets are: core (essential tools like file, search, terminal), git (version control operations), and cloud (cloud provider CLI operations)."
+
+  - question: "What command validates a custom toolset configuration?"
+    category: practical
+    choices:
+      - text: "toolset validate <path>"
+        key: "A"
+      - text: "toolset check"
+        key: "B"
+      - text: "validate-toolset"
+        key: "C"
+      - text: "hermes validate"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'toolset validate <path>' command checks if a toolset configuration is valid before enabling it."
+
+  - question: "What is the difference between a Toolset and a Skill?"
+    category: conceptual
+    choices:
+      - text: "Toolsets group tool definitions; Skills provide reusable expertise and workflows"
+        key: "A"
+      - text: "They are the same thing with different names"
+        key: "B"
+      - text: "Skills are for reading; Toolsets are for writing"
+        key: "C"
+      - text: "Toolsets are temporary; Skills are permanent"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Toolsets group related tool definitions (what operations are available), while Skills provide reusable domain-specific expertise and workflows (how to use those operations intelligently)."

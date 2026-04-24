@@ -1,0 +1,117 @@
+topic: checkpoints
+title: "Checkpoints Quiz"
+description: Test your knowledge of Hermes checkpoint system
+module: "12-checkpoints"
+
+questions:
+  - question: "What command creates a checkpoint?"
+    category: practical
+    choices:
+      - text: "checkpoint create [name]"
+        key: "A"
+      - text: "save checkpoint"
+        key: "B"
+      - text: "/checkpoint save"
+        key: "C"
+      - text: "snapshot create"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'checkpoint create [name]' command saves the current conversation state. Related commands: 'checkpoint list', 'checkpoint restore', 'checkpoint branch', 'checkpoint delete', 'checkpoint export'."
+
+  - question: "What does a checkpoint capture?"
+    category: conceptual
+    choices:
+      - text: "Full conversation history, file system state, tool execution results, and agent context"
+        key: "A"
+      - text: "Only conversation history"
+        key: "B"
+      - text: "Only modified files"
+        key: "C"
+      - text: "Only the current memory state"
+        key: "D"
+    correct_answer: "A"
+    explanation: "A checkpoint captures everything: full conversation history, file system state (modified files), tool execution results, and agent context/variables at that point in time."
+
+  - question: "How do you restore a conversation from a checkpoint?"
+    category: practical
+    choices:
+      - text: "checkpoint restore <id>"
+        key: "A"
+      - text: "checkpoint load <id>"
+        key: "B"
+      - text: "/restore <id>"
+        key: "C"
+      - text: "rewind to <id>"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'checkpoint restore <id>' command restores the conversation to a saved checkpoint state. This allows recovery from mistakes or exploring alternative directions."
+
+  - question: "What is the difference between a Checkpoint and Memory?"
+    category: conceptual
+    choices:
+      - text: "Checkpoint is for state recovery (point-in-time); Memory is for ongoing context persistence"
+        key: "A"
+      - text: "They are the same thing"
+        key: "B"
+      - text: "Memory is temporary; Checkpoint is permanent"
+        key: "C"
+      - text: "Checkpoint stores less data than Memory"
+        key: "D"
+    correct_answer: "A"
+    explanation: "Checkpoint is for point-in-time state recovery (snapshot and restore), while Memory provides ongoing context persistence across sessions. Checkpoints can branch; Memory maintains a single timeline."
+
+  - question: "What command lists all available checkpoints?"
+    category: practical
+    choices:
+      - text: "checkpoint list"
+        key: "A"
+      - text: "checkpoints show"
+        key: "B"
+      - text: "/checkpoint list"
+        key: "C"
+      - text: "ls checkpoints"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'checkpoint list' command shows all saved checkpoints with their IDs, names, timestamps, and which contain file changes or conversation history."
+
+  - question: "What is a branch checkpoint?"
+    category: conceptual
+    choices:
+      - text: "A checkpoint that creates an alternate conversation path for exploring possibilities"
+        key: "A"
+      - text: "A checkpoint shared between team members"
+        key: "B"
+      - text: "A read-only checkpoint"
+        key: "C"
+      - text: "An encrypted checkpoint"
+        key: "D"
+    correct_answer: "A"
+    explanation: "A branch checkpoint creates an alternate conversation path, allowing you to explore different directions without losing your current work. Think of it as 'forking' a conversation."
+
+  - question: "What are the three checkpoint types?"
+    category: conceptual
+    choices:
+      - text: "Manual (user/agent request), Auto (periodic/event), Branch (after branching)"
+        key: "A"
+      - text: "Temporary, Permanent, and Shared"
+        key: "B"
+      - text: "Local, Cloud, and Hybrid"
+        key: "C"
+      - text: "Single, Multi-session, and Team"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The three checkpoint types are: Manual (triggered by user/agent request, retained until explicitly deleted), Auto (triggered periodically or by events, has configurable TTL), and Branch (created after branching, preserved indefinitely)."
+
+  - question: "What command exports a checkpoint for sharing?"
+    category: practical
+    choices:
+      - text: "checkpoint export <id>"
+        key: "A"
+      - text: "checkpoint share <id>"
+        key: "B"
+      - text: "checkpoint dump <id>"
+        key: "C"
+      - text: "export checkpoint <id>"
+        key: "D"
+    correct_answer: "A"
+    explanation: "The 'checkpoint export <id>' command exports a checkpoint for sharing, creating a portable archive that can be imported on another system."
